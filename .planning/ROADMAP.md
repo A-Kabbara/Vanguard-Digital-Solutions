@@ -35,13 +35,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. A test heading in Instrument Serif and a test paragraph in Inter render at correct fluid sizes from 375px to 1440px viewport width
   4. Container is centered at max 1120px with responsive padding that adjusts across desktop, tablet (1024px), and mobile (640px) breakpoints
   5. No pure black (#000) or pure white (#FFF) appears anywhere -- all values are off-black/off-white per the palette
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] 01-01: CSS reset and base element styles
-- [ ] 01-02: Three-tier design token system (primitives, semantic, component)
-- [ ] 01-03: Typography system (font loading, fluid type scale, heading/body/mono classes)
-- [ ] 01-04: Layout system (container, spacing scale, responsive breakpoints)
+- [ ] 01-01-PLAN.md -- Tokens, reset, and index.html head (Wave 1: tokens.css + reset.css + font/CSS link updates + delete visuals.css)
+- [ ] 01-02-PLAN.md -- Typography system (Wave 2: typography.css with heading/body/mono classes and fluid type scale)
+- [ ] 01-03-PLAN.md -- Layout system (Wave 2: layout.css with container, spacing, breakpoints, utilities)
+- [ ] 01-04-PLAN.md -- Visual verification (Wave 3: test section, automated checks, human visual confirmation)
 
 ### Phase 2: Component Library
 **Goal**: Reusable UI components (cards, buttons, badges, form inputs) exist with proper dark-theme styling, varied border radii, and meaningful hover states -- ready to drop into any section.
