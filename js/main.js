@@ -1,149 +1,235 @@
 /**
- * Vanguard Digital Solutions - Professional Interaction Controller
+ * Vanguard Digital Solutions
  */
+(function () {
+  'use strict';
 
-class App {
-  constructor() {
-    this.initNavbar();
-    this.initRevealObserver();
-    this.initMagneticEffects();
-  }
+  /* ──────────────────────────────────────────
+     Configure your n8n webhook URL here.
+     Leave empty to fall back to mailto.
+     ────────────────────────────────────────── */
+  var WEBHOOK_URL = '';
 
-  /* --- Navbar Scroll Interaction --- */
-  initNavbar() {
-    const nav = document.getElementById('navbar');
+  /* ── Navbar scroll state ── */
+  function initNavbar() {
+    var nav = document.getElementById('navbar');
     if (!nav) return;
 
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 100);
-    }, { passive: true });
+    function update() {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
   }
 
-  /* --- Cinematic Reveal Logic --- */
-  initRevealObserver() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
+  /* ── Mobile navigation ── */
+  function initMobileNav() {
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navLinks');
+    if (!toggle || !links) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    function setNav(open) {
+      links.classList.toggle('open', open);
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    toggle.addEventListener('click', function () {
+      setNav(!links.classList.contains('open'));
+    });
+
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setNav(false); });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setNav(false);
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 640) setNav(false);
+    });
+  }
+
+  /* ── Scroll reveal (IntersectionObserver) ── */
+  function initReveals() {
+    var els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (el) { el.classList.add('active'); });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          // Add visible class with a slight random delay for more "natural" feel
-          const delay = entry.target.dataset.delay || 0;
-          setTimeout(() => {
-            entry.target.classList.add('reveal-active');
-          }, delay);
+          entry.target.classList.add('active');
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    els.forEach(function (el) { observer.observe(el); });
   }
 
-  /* --- Premium Micro-interactions (Magnetic Buttons) --- */
-  initMagneticEffects() {
-    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-    if (!hasFinePointer || window.innerWidth < 1024) return;
+  /* ── FAQ accordion (single open) ── */
+  function initFaq() {
+    var items = document.querySelectorAll('.accordion-item');
+    if (!items.length) return;
 
-    const magneticBtns = document.querySelectorAll('.hero-actions .btn-primary');
-
-    magneticBtns.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-
-        btn.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
-      });
-
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = `translate(0px, 0px)`;
+    items.forEach(function (item) {
+      item.addEventListener('toggle', function () {
+        if (!item.open) return;
+        items.forEach(function (other) {
+          if (other !== item) other.open = false;
+        });
       });
     });
   }
 
-  /* --- Form Integration & Validation --- */
-  initContactForm() {
-    const form = document.getElementById('contactForm');
+  /* ── Smooth scroll for anchor links ── */
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var id = link.getAttribute('href');
+        if (id === '#') return;
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  /* ── Contact form validation + submission ── */
+  function initContactForm() {
+    var form = document.getElementById('contactForm');
     if (!form) return;
-    const phoneInput = form.querySelector('#phone');
 
-    const validatePhone = (rawPhone) => {
-      const cleaned = rawPhone.replace(/[\s\-()+]/g, '');
-      return /^(\+?61|0)[2-478]\d{8}$/.test(cleaned) || /^(\+?61|0)4\d{8}$/.test(cleaned);
-    };
+    var submitBtn = document.getElementById('submitBtn');
+    var successEl = document.getElementById('formSuccess');
+    var errorBanner = document.getElementById('formError');
+    var phoneInput = form.querySelector('#phone');
 
+    /* Phone input: allow only digits and formatting chars */
     if (phoneInput) {
-      phoneInput.addEventListener('input', () => {
-        const sanitized = phoneInput.value.replace(/[^\d+\s()-]/g, '').slice(0, 16);
-        phoneInput.value = sanitized;
+      phoneInput.addEventListener('input', function () {
+        phoneInput.value = phoneInput.value.replace(/[^\d+\s()\-]/g, '').slice(0, 16);
       });
     }
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+    /* Australian phone validation */
+    function isValidPhone(raw) {
+      var cleaned = raw.replace(/[\s\-()+]/g, '');
+      return /^(\+?61|0)[2-478]\d{8}$/.test(cleaned) ||
+             /^(\+?61|0)4\d{8}$/.test(cleaned);
+    }
 
-      let isValid = true;
-      const fields = form.querySelectorAll('[required]');
-
-      fields.forEach(field => {
-        const group = field.closest('.form-group');
-        const value = field.value.trim();
-        const errorMsg = group?.querySelector('.form-error-msg');
-
-        if (!value) {
-          if (field.name === 'phone' && errorMsg) {
-            errorMsg.textContent = 'Phone number is required';
-          }
-          group.classList.add('error');
-          isValid = false;
-        } else if (field.name === 'phone' && !validatePhone(value)) {
-          if (errorMsg) {
-            errorMsg.textContent = 'Enter a valid Australian phone number';
-          }
-          group.classList.add('error');
-          isValid = false;
-        } else {
-          group.classList.remove('error');
-        }
-      });
-
-      if (isValid) {
-        const formData = new FormData(form);
-        const name = formData.get('full_name');
-        const email = formData.get('email');
-        const phone = formData.get('phone');
-        const service = formData.get('service');
-        const message = formData.get('message');
-        const serviceSelect = form.querySelector('#service');
-        const serviceLabel = serviceSelect?.options[serviceSelect.selectedIndex]?.text || service;
-        const projectMessage = message || 'Not provided';
-
-        const subject = encodeURIComponent(`Project Brief - ${name}`);
-        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${serviceLabel}\n\nProject details:\n${projectMessage}`);
-
-        window.location.href = `mailto:hello@vanguarddigital.com.au?subject=${subject}&body=${body}`;
-
-        const successMsg = document.getElementById('formSuccess');
-        if (successMsg) successMsg.style.display = 'block';
-        form.reset();
-      }
-    });
-
-    // Remove error class on input
-    form.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(el => {
-      el.addEventListener('input', () => {
-        const group = el.closest('.form-group');
+    /* Clear field errors on input */
+    form.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(function (field) {
+      field.addEventListener('input', function () {
+        var group = field.closest('.form-group');
         if (group) group.classList.remove('error');
       });
     });
-  }
-}
 
-// Kickstart modern runtime
-document.addEventListener('DOMContentLoaded', () => {
-  const app = new App();
-  app.initContactForm();
-});
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      /* Honeypot check */
+      var honey = form.querySelector('input[name="website"]');
+      if (honey && honey.value) return;
+
+      /* Validate required fields */
+      var valid = true;
+      form.querySelectorAll('[required]').forEach(function (field) {
+        var group = field.closest('.form-group');
+        if (!group) return;
+        var value = field.value.trim();
+
+        if (!value) {
+          group.classList.add('error');
+          valid = false;
+          return;
+        }
+
+        if (field.name === 'phone' && !isValidPhone(value)) {
+          group.classList.add('error');
+          valid = false;
+          return;
+        }
+
+        if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          group.classList.add('error');
+          valid = false;
+          return;
+        }
+
+        group.classList.remove('error');
+      });
+
+      if (!valid) return;
+
+      /* Gather form data */
+      var data = {};
+      new FormData(form).forEach(function (val, key) { data[key] = val; });
+      delete data.website;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending\u2026';
+      if (errorBanner) errorBanner.classList.remove('show');
+
+      /* Submit via webhook or mailto fallback */
+      if (WEBHOOK_URL) {
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Submission failed');
+          showSuccess();
+        })
+        .catch(function () {
+          if (errorBanner) errorBanner.classList.add('show');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Enquiry';
+        });
+      } else {
+        /* Mailto fallback */
+        var subject = encodeURIComponent('Website Enquiry - ' + data.full_name);
+        var body = encodeURIComponent(
+          'Name: ' + data.full_name +
+          '\nEmail: ' + data.email +
+          '\nPhone: ' + data.phone +
+          '\nService: ' + data.service +
+          '\n\nMessage:\n' + (data.message || 'Not provided')
+        );
+        window.location.href = 'mailto:hello@vanguarddigital.com.au?subject=' + subject + '&body=' + body;
+        showSuccess();
+      }
+
+      function showSuccess() {
+        form.reset();
+        /* Hide form fields, show success message */
+        Array.from(form.children).forEach(function (child) {
+          if (child.id !== 'formSuccess') child.style.display = 'none';
+        });
+        if (successEl) successEl.classList.add('show');
+      }
+    });
+  }
+
+  /* ── Init ── */
+  document.addEventListener('DOMContentLoaded', function () {
+    initNavbar();
+    initMobileNav();
+    initReveals();
+    initFaq();
+    initSmoothScroll();
+    initContactForm();
+  });
+})();

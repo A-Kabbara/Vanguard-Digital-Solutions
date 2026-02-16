@@ -66,6 +66,31 @@
   }
 }
 
+/* Scroll margin for fixed navbar */
+[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Skip link (visible on focus only) */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: var(--space-4);
+  z-index: 200;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition: top 0.2s ease;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
 /* Visually hidden utility (screen reader only) */
 .sr-only {
   position: absolute;
