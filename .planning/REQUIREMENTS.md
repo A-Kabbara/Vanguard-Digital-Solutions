@@ -8,7 +8,7 @@
 
 ### Design System
 
-- [ ] **DES-01**: Site uses three-tier design token system (primitive → semantic → component) via CSS custom properties in `:root`
+- [ ] **DES-01**: Site uses three-tier design token system (primitive > semantic > component) via CSS custom properties in `:root`
 - [ ] **DES-02**: Typography uses Instrument Serif (headings) + Inter (body) + JetBrains Mono (labels/mono) loaded via Google Fonts
 - [ ] **DES-03**: Color palette uses off-black backgrounds (#08090E primary, #0F1117 surface, #161820 subtle), off-white text (#F0F0F5 primary, #9B9BA8 secondary), and electric indigo accent (#635BFF)
 - [ ] **DES-04**: Dark theme follows WCAG AA contrast (4.5:1 body text, 3:1 large text) — no pure black or pure white
@@ -151,18 +151,86 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DES-01 through DES-10 | TBD | Pending |
-| LAY-01 through LAY-07 | TBD | Pending |
-| HERO-01 through HERO-08 | TBD | Pending |
-| CONT-01 through CONT-09 | TBD | Pending |
-| FORM-01 through FORM-06 | TBD | Pending |
-| NAV-01 through NAV-06 | TBD | Pending |
-| INT-01 through INT-06 | TBD | Pending |
-| A11Y-01 through A11Y-08 | TBD | Pending |
-| SEO-01 through SEO-08 | TBD | Pending |
-| PERF-01 through PERF-06 | TBD | Pending |
-| ICON-01 through ICON-03 | TBD | Pending |
-| FOOT-01 through FOOT-03 | TBD | Pending |
+| DES-01 | Phase 1: Design Foundation | Pending |
+| DES-02 | Phase 1: Design Foundation | Pending |
+| DES-03 | Phase 1: Design Foundation | Pending |
+| DES-04 | Phase 1: Design Foundation | Pending |
+| DES-05 | Phase 2: Component Library | Pending |
+| DES-06 | Phase 4: Hero Section | Pending |
+| DES-07 | Phase 2: Component Library | Pending |
+| DES-08 | Phase 1: Design Foundation | Pending |
+| DES-09 | Phase 1: Design Foundation | Pending |
+| DES-10 | Phase 1: Design Foundation | Pending |
+| LAY-01 | Phase 3: Page Structure & Navigation | Pending |
+| LAY-02 | Phase 1: Design Foundation | Pending |
+| LAY-03 | Phase 1: Design Foundation | Pending |
+| LAY-04 | Phase 5: Content Sections | Pending |
+| LAY-05 | Phase 5: Content Sections | Pending |
+| LAY-06 | Phase 1: Design Foundation | Pending |
+| LAY-07 | Phase 3: Page Structure & Navigation | Pending |
+| HERO-01 | Phase 4: Hero Section | Pending |
+| HERO-02 | Phase 4: Hero Section | Pending |
+| HERO-03 | Phase 4: Hero Section | Pending |
+| HERO-04 | Phase 4: Hero Section | Pending |
+| HERO-05 | Phase 4: Hero Section | Pending |
+| HERO-06 | Phase 4: Hero Section | Pending |
+| HERO-07 | Phase 4: Hero Section | Pending |
+| HERO-08 | Phase 4: Hero Section | Pending |
+| CONT-01 | Phase 5: Content Sections | Pending |
+| CONT-02 | Phase 5: Content Sections | Pending |
+| CONT-03 | Phase 5: Content Sections | Pending |
+| CONT-04 | Phase 5: Content Sections | Pending |
+| CONT-05 | Phase 5: Content Sections | Pending |
+| CONT-06 | Phase 6: FAQ & Contact Form | Pending |
+| CONT-07 | Phase 5: Content Sections | Pending |
+| CONT-08 | Phase 5: Content Sections | Pending |
+| CONT-09 | Phase 5: Content Sections | Pending |
+| FORM-01 | Phase 6: FAQ & Contact Form | Pending |
+| FORM-02 | Phase 6: FAQ & Contact Form | Pending |
+| FORM-03 | Phase 6: FAQ & Contact Form | Pending |
+| FORM-04 | Phase 6: FAQ & Contact Form | Pending |
+| FORM-05 | Phase 6: FAQ & Contact Form | Pending |
+| FORM-06 | Phase 6: FAQ & Contact Form | Pending |
+| NAV-01 | Phase 3: Page Structure & Navigation | Pending |
+| NAV-02 | Phase 3: Page Structure & Navigation | Pending |
+| NAV-03 | Phase 3: Page Structure & Navigation | Pending |
+| NAV-04 | Phase 3: Page Structure & Navigation | Pending |
+| NAV-05 | Phase 3: Page Structure & Navigation | Pending |
+| NAV-06 | Phase 3: Page Structure & Navigation | Pending |
+| INT-01 | Phase 8: Interactions & Animations | Pending |
+| INT-02 | Phase 8: Interactions & Animations | Pending |
+| INT-03 | Phase 6: FAQ & Contact Form | Pending |
+| INT-04 | Phase 2: Component Library | Pending |
+| INT-05 | Phase 8: Interactions & Animations | Pending |
+| INT-06 | Phase 8: Interactions & Animations | Pending |
+| A11Y-01 | Phase 3: Page Structure & Navigation | Pending |
+| A11Y-02 | Phase 3: Page Structure & Navigation | Pending |
+| A11Y-03 | Phase 3: Page Structure & Navigation | Pending |
+| A11Y-04 | Phase 9: Accessibility & SEO | Pending |
+| A11Y-05 | Phase 9: Accessibility & SEO | Pending |
+| A11Y-06 | Phase 9: Accessibility & SEO | Pending |
+| A11Y-07 | Phase 9: Accessibility & SEO | Pending |
+| A11Y-08 | Phase 9: Accessibility & SEO | Pending |
+| SEO-01 | Phase 9: Accessibility & SEO | Pending |
+| SEO-02 | Phase 9: Accessibility & SEO | Pending |
+| SEO-03 | Phase 9: Accessibility & SEO | Pending |
+| SEO-04 | Phase 9: Accessibility & SEO | Pending |
+| SEO-05 | Phase 9: Accessibility & SEO | Pending |
+| SEO-06 | Phase 9: Accessibility & SEO | Pending |
+| SEO-07 | Phase 9: Accessibility & SEO | Pending |
+| SEO-08 | Phase 9: Accessibility & SEO | Pending |
+| PERF-01 | Phase 10: Performance & Polish | Pending |
+| PERF-02 | Phase 10: Performance & Polish | Pending |
+| PERF-03 | Phase 10: Performance & Polish | Pending |
+| PERF-04 | Phase 10: Performance & Polish | Pending |
+| PERF-05 | Phase 10: Performance & Polish | Pending |
+| PERF-06 | Phase 10: Performance & Polish | Pending |
+| ICON-01 | Phase 5: Content Sections | Pending |
+| ICON-02 | Phase 5: Content Sections | Pending |
+| ICON-03 | Phase 5: Content Sections | Pending |
+| FOOT-01 | Phase 7: Footer | Pending |
+| FOOT-02 | Phase 7: Footer | Pending |
+| FOOT-03 | Phase 7: Footer | Pending |
 
 ---
 *Created: 2026-02-16*
