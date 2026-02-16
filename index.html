@@ -421,31 +421,6 @@
       background: var(--green);
       flex-shrink: 0;
     }
-    .hero-logos {
-      margin-top: 28px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .hero-logos span {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      color: var(--grey-600);
-      text-transform: uppercase;
-      padding: 6px 8px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.02);
-    }
-    .hero-logos .hero-logo-label {
-      border: none;
-      padding-left: 0;
-      color: #7E839A;
-      letter-spacing: 0.16em;
-      background: none;
-    }
     .hero-panel {
       position: relative;
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -657,8 +632,32 @@
       max-width: 620px;
       color: var(--grey-400);
     }
+    .work-filters {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .work-filter {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #9EA3B8;
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .work-filter.active {
+      color: var(--white);
+      border-color: rgba(99, 102, 241, 0.48);
+      background: rgba(99, 102, 241, 0.16);
+      box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.18) inset;
+    }
     .proof-grid {
-      margin-top: 56px;
+      margin-top: 44px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
@@ -1490,9 +1489,6 @@
       .trust-item {
         padding: 8px 10px;
       }
-      .hero-logos {
-        justify-content: center;
-      }
       .hero-panel {
         padding: 22px 16px;
       }
@@ -1570,11 +1566,12 @@
     <div class="container">
       <a href="#" class="nav-logo">VANGUARD DIGITAL SOLUTIONS</a>
       <div class="nav-links">
+        <a href="#work">Work</a>
         <a href="#services">Services</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
-        <a href="#contact" class="btn-primary nav-cta">Book a Strategy Call</a>
+        <a href="#contact" class="btn-primary nav-cta">Start a Project</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span>
@@ -1592,11 +1589,12 @@
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
+    <a href="#work" class="mobile-nav-link">Work</a>
     <a href="#services" class="mobile-nav-link">Services</a>
     <a href="#process" class="mobile-nav-link">Process</a>
     <a href="#faq" class="mobile-nav-link">FAQ</a>
     <a href="#contact" class="mobile-nav-link">Contact</a>
-    <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+    <a href="#contact" class="btn-primary">Start a Project</a>
   </div>
 
   <!-- ============================================
@@ -1607,12 +1605,12 @@
       <div class="hero-copy">
         <div class="hero-badge reveal">
           <span class="hero-badge-dot"></span>
-          <span>Now booking Q2 2026 projects</span>
+          <span>Independent digital agency, Melbourne</span>
         </div>
         <h1 class="reveal">Websites and AI workflows that win more <em>qualified jobs.</em></h1>
         <p class="hero-subtitle reveal">We help Australian service businesses turn traffic into booked work with conversion-focused websites, automated follow-up, and lead systems that run every day.</p>
         <div class="hero-buttons reveal">
-          <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+          <a href="#contact" class="btn-primary">Start a Project</a>
           <a href="#services" class="btn-secondary">See Services &darr;</a>
         </div>
         <div class="trust-bar reveal">
@@ -1621,16 +1619,8 @@
             Melbourne, Australia
           </div>
           <div class="trust-item">Fixed-scope delivery</div>
-          <div class="trust-item">Built in your accounts</div>
+          <div class="trust-item">Clear handover and ownership</div>
           <div class="trust-item">Response within 24 hours</div>
-        </div>
-        <div class="hero-logos reveal">
-          <span class="hero-logo-label">Integrates with</span>
-          <span>n8n</span>
-          <span>HubSpot</span>
-          <span>GoHighLevel</span>
-          <span>Google Ads</span>
-          <span>Meta Ads</span>
         </div>
       </div>
       <aside class="hero-panel reveal">
@@ -1660,7 +1650,7 @@
 
         <ul class="hero-list">
           <li>Clear scope, fixed investment, no lock-in contracts.</li>
-          <li>Built inside your stack so your team keeps ownership.</li>
+          <li>Clear documentation and practical handover for your team.</li>
           <li>Focused on booked jobs, not vanity metrics.</li>
         </ul>
       </aside>
@@ -1691,7 +1681,7 @@
         </div>
         <div class="stat-item reveal">
           <div class="stat-number">$0</div>
-          <div class="stat-label">Strategy call - always free</div>
+          <div class="stat-label">Initial consult included</div>
         </div>
       </div>
       <div class="proof-clients reveal">
@@ -1708,12 +1698,18 @@
   <!-- ============================================
        4. PROOF SNAPSHOTS
   ============================================ -->
-  <section class="proof-snapshots">
+  <section class="proof-snapshots" id="work">
     <div class="container">
       <div class="proof-header">
-        <span class="label reveal">RECENT OUTCOMES</span>
+        <span class="label reveal">SELECTED WORK</span>
         <h2 class="section-title reveal">Measured outcomes from live client systems.</h2>
-        <p class="section-subtitle reveal">A few examples of what changes when website performance and operations are designed as one system.</p>
+        <p class="section-subtitle reveal">Examples of what changes when website performance and operational systems are designed together.</p>
+        <div class="work-filters reveal">
+          <span class="work-filter active">All</span>
+          <span class="work-filter">Websites</span>
+          <span class="work-filter">Automation</span>
+          <span class="work-filter">Lead Growth</span>
+        </div>
       </div>
 
       <div class="proof-grid">
@@ -1796,7 +1792,7 @@
           <div class="service-icon">
             <svg viewBox="0 0 24 24"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path></svg>
           </div>
-          <h3>Growth Stack Optimisation</h3>
+          <h3>Performance Optimisation</h3>
           <p>For established teams that want to tighten conversion performance before increasing ad or sales spend.</p>
           <div class="service-list">
             <span>Funnel and workflow diagnostics</span>
@@ -1822,10 +1818,10 @@
         </div>
       </div>
 
-      <p class="services-trust reveal">Built in your accounts. You keep ownership. No lock-in contracts.</p>
+      <p class="services-trust reveal">Full handover, transparent scope, and long-term maintainability.</p>
 
       <div class="services-cta reveal">
-        <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+        <a href="#process" class="btn-primary">See Our Process</a>
       </div>
     </div>
   </section>
@@ -1843,7 +1839,7 @@
       <div class="process-grid">
         <div class="process-step reveal">
           <div class="step-number">01</div>
-          <div class="step-title">Discovery Call</div>
+          <div class="step-title">Discovery Session</div>
           <p class="step-desc">In 30 minutes we map your goals, current bottlenecks, and what is costing you the most time or revenue.</p>
         </div>
         <div class="process-step reveal">
@@ -1864,7 +1860,7 @@
       </div>
 
       <div class="process-cta reveal">
-        <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+        <a href="#contact" class="btn-primary">Start a Project</a>
       </div>
     </div>
   </section>
@@ -1884,7 +1880,7 @@
           <h3>Trades and Local Service Teams</h3>
           <p>Electricians, plumbers, landscapers, clinics, and service operators needing a stronger local web presence and better lead flow.</p>
           <div class="who-stat">Designed to increase calls, quote requests, and booked jobs</div>
-          <a href="#contact" class="who-link">Book your strategy call &rarr;</a>
+          <a href="#contact" class="who-link">Discuss your goals &rarr;</a>
         </div>
         <div class="who-card reveal">
           <h3>Growing Operations Teams</h3>
@@ -1901,7 +1897,7 @@
       </div>
 
       <div class="services-cta reveal" style="margin-top: 48px;">
-        <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+        <a href="#contact" class="btn-primary">Start a Project</a>
       </div>
     </div>
   </section>
@@ -1981,15 +1977,15 @@
   <section class="final-cta section-padding" id="contact" style="padding: 160px 0 120px;">
     <div class="container">
       <div class="final-cta-inner">
-        <h2 class="reveal">Ready for a system that brings in <em>better leads?</em></h2>
-        <p class="section-subtitle reveal">Book a 30-minute strategy call. We will identify the highest-impact fixes and send a clear fixed-scope plan.</p>
+        <h2 class="reveal">Tell us what you need to <em>improve next.</em></h2>
+        <p class="section-subtitle reveal">Share your goals and constraints. We will come back with a practical scope, timeline, and clear next step.</p>
 
         <div class="consult-breadcrumb reveal">
-          <span>Book a strategy call</span>
+          <span>Submit your brief</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          <span>Get a clear roadmap</span>
+          <span>We review it</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          <span>Approve and launch</span>
+          <span>You get scope + timeline</span>
         </div>
 
         <p class="form-credibility reveal">Every engagement starts with context, not a sales script. We map your current setup, highlight the conversion gaps, and recommend the smallest set of actions with the highest impact.</p>
@@ -2019,7 +2015,7 @@
                 <option value="" disabled selected>Select a service</option>
                 <option value="website-sprint">Website Sprint</option>
                 <option value="automation-sprint">Automation Sprint</option>
-                <option value="growth-stack-optimisation">Growth Stack Optimisation</option>
+                <option value="performance-optimisation">Performance Optimisation</option>
                 <option value="lead-engine-extension">Lead Engine Extension</option>
                 <option value="all">Full growth system</option>
                 <option value="not-sure">Not sure yet</option>
@@ -2032,7 +2028,7 @@
             <textarea class="form-textarea" id="formMessage" placeholder="What are you looking for? Any timeline or budget in mind? (optional)"></textarea>
           </div>
           <div class="form-submit">
-            <button type="submit" class="btn-primary">Request Strategy Call</button>
+            <button type="submit" class="btn-primary">Send Project Brief</button>
           </div>
           <div class="form-friction-reducers">
             <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Your data stays private</span>
@@ -2053,7 +2049,7 @@
 
   <!-- Sticky Mobile CTA -->
   <div class="sticky-mobile-cta" id="stickyCta">
-    <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+    <a href="#contact" class="btn-primary">Start a Project</a>
   </div>
 
   <!-- ============================================
@@ -2071,11 +2067,12 @@
           <h4>Services</h4>
           <a href="#services">Website Sprint</a>
           <a href="#services">Automation Sprint</a>
-          <a href="#services">Stack Optimisation</a>
+          <a href="#services">Performance Optimisation</a>
           <a href="#services">Lead Engine Extension</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
+          <a href="#work">Work</a>
           <a href="#services">Services</a>
           <a href="#process">Process</a>
           <a href="#clients">Clients</a>
@@ -2086,7 +2083,7 @@
           <h4>Get In Touch</h4>
           <a href="mailto:hello@vanguarddigital.com.au">hello@vanguarddigital.com.au</a>
           <a href="https://vanguarddigital.com.au">vanguarddigital.com.au</a>
-          <a href="#contact" class="accent-link">Book a Strategy Call</a>
+          <a href="#contact" class="accent-link">Start a Project</a>
         </div>
       </div>
       <div class="footer-bottom">
