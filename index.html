@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vanguard Digital Solutions | Websites, Automation, Systems</title>
   <meta name="description" content="Melbourne agency building high-converting websites, AI automation workflows, and lead generation systems for Australian service businesses.">
+  <link rel="canonical" href="https://vanguarddigital.com.au/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vanguard Digital Solutions">
+  <meta property="og:title" content="Vanguard Digital Solutions | Websites, Automation, Systems">
+  <meta property="og:description" content="Melbourne agency building high-converting websites, AI automation workflows, and lead generation systems for Australian service businesses.">
+  <meta property="og:url" content="https://vanguarddigital.com.au/">
+  <meta property="og:image" content="https://vanguarddigital.com.au/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vanguard Digital Solutions | Websites, Automation, Systems">
+  <meta name="twitter:description" content="Melbourne agency building high-converting websites, AI automation workflows, and lead generation systems for Australian service businesses.">
+  <meta name="twitter:image" content="https://vanguarddigital.com.au/og-image.jpg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0F'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%236366F1'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -1573,7 +1586,7 @@
         <a href="#contact">Contact</a>
         <a href="#contact" class="btn-primary nav-cta">Start a Project</a>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -1582,7 +1595,7 @@
   </nav>
 
   <!-- Mobile Nav Overlay -->
-  <div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Mobile navigation">
     <button class="mobile-close" id="mobileClose" aria-label="Close menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -1631,20 +1644,20 @@
 
         <div class="hero-metric-grid">
           <div class="hero-metric">
-            <div class="hero-metric-value">2.1x</div>
-            <div class="hero-metric-label">Higher enquiry conversion after website rebuild</div>
+            <div class="hero-metric-value">Phase 01</div>
+            <div class="hero-metric-label">Discovery and diagnosis with clear priorities</div>
           </div>
           <div class="hero-metric">
-            <div class="hero-metric-value">23 hrs</div>
-            <div class="hero-metric-label">Weekly admin saved with follow-up automations</div>
+            <div class="hero-metric-value">Phase 02</div>
+            <div class="hero-metric-label">Design and build with weekly check-ins</div>
           </div>
           <div class="hero-metric">
-            <div class="hero-metric-value">7-14d</div>
-            <div class="hero-metric-label">Typical launch window for Website Sprint</div>
+            <div class="hero-metric-value">Phase 03</div>
+            <div class="hero-metric-label">Launch, QA, and measured optimisation</div>
           </div>
           <div class="hero-metric">
-            <div class="hero-metric-value">24h</div>
-            <div class="hero-metric-label">Average response time on inbound leads</div>
+            <div class="hero-metric-value">Handover</div>
+            <div class="hero-metric-label">Documentation and ownership transfer</div>
           </div>
         </div>
 
@@ -1860,7 +1873,7 @@
       </div>
 
       <div class="process-cta reveal">
-        <a href="#contact" class="btn-primary">Start a Project</a>
+        <a href="#contact" class="btn-secondary">Discuss Your Project</a>
       </div>
     </div>
   </section>
@@ -1897,7 +1910,7 @@
       </div>
 
       <div class="services-cta reveal" style="margin-top: 48px;">
-        <a href="#contact" class="btn-primary">Start a Project</a>
+        <a href="#work" class="btn-secondary">View Selected Work</a>
       </div>
     </div>
   </section>
@@ -1914,56 +1927,56 @@
 
       <div class="faq-list">
         <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
             <span>How much does it cost?</span>
             <span class="faq-icon"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-1">
             <div class="faq-answer-inner">Project investment depends on scope and target outcome. Website engagements usually start in the mid four figures, while automation and lead systems are scoped by complexity. You always receive a fixed proposal before work begins.</div>
           </div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
             <span>How long does it take?</span>
             <span class="faq-icon"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-2">
             <div class="faq-answer-inner">Most website builds launch in 1-2 weeks. Automation and lead system projects are typically 2-6 weeks depending on integrations and approvals. We lock timelines before kickoff.</div>
           </div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
             <span>I'm not technical. Will I understand what you're doing?</span>
             <span class="faq-icon"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-3">
             <div class="faq-answer-inner">Yes. Most clients are non-technical. We explain decisions in plain language and provide handover walkthroughs so your team can run the system with confidence.</div>
           </div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
             <span>Do you work with businesses outside Melbourne?</span>
             <span class="faq-icon"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-4">
             <div class="faq-answer-inner">Yes. We're based in Melbourne but work remotely with clients across Australia.</div>
           </div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
             <span>What if I just need a website and nothing else?</span>
             <span class="faq-icon"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-5">
             <div class="faq-answer-inner">Absolutely. Many engagements start with a website sprint, then expand into automation or lead growth once conversion data is coming in. The roadmap is modular.</div>
           </div>
         </div>
         <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">
             <span>What makes you different from other web agencies?</span>
             <span class="faq-icon"></span>
           </button>
-          <div class="faq-answer">
+          <div class="faq-answer" id="faq-answer-6">
             <div class="faq-answer-inner">We combine performance website execution with operational automation. Most agencies stop at design delivery. We stay focused on what matters after launch: response speed, qualified lead flow, and conversion outcomes.</div>
           </div>
         </div>
@@ -1993,25 +2006,25 @@
         <form class="contact-form reveal" id="contactForm" novalidate>
           <div class="form-row">
             <div class="form-group" id="nameGroup">
-              <label class="form-label">Full name <span class="required">*</span></label>
-              <input type="text" class="form-input" id="formName" placeholder="John Smith" required>
+              <label class="form-label" for="formName">Full name <span class="required">*</span></label>
+              <input type="text" class="form-input" id="formName" name="full_name" autocomplete="name" aria-describedby="nameError" placeholder="John Smith" required>
               <span class="form-error" id="nameError">Please enter your name.</span>
             </div>
             <div class="form-group" id="emailGroup">
-              <label class="form-label">Email <span class="required">*</span></label>
-              <input type="email" class="form-input" id="formEmail" placeholder="john@business.com.au" required>
+              <label class="form-label" for="formEmail">Email <span class="required">*</span></label>
+              <input type="email" class="form-input" id="formEmail" name="email" autocomplete="email" aria-describedby="emailError" placeholder="john@business.com.au" required>
               <span class="form-error" id="emailError">Please enter a valid email address.</span>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group" id="phoneGroup">
-              <label class="form-label">Phone <span style="font-size: 0.75rem; color: var(--grey-600); font-weight: 400;">(optional)</span></label>
-              <input type="tel" class="form-input" id="formPhone" placeholder="04XX XXX XXX">
+              <label class="form-label" for="formPhone">Phone <span style="font-size: 0.75rem; color: var(--grey-600); font-weight: 400;">(optional)</span></label>
+              <input type="tel" class="form-input" id="formPhone" name="phone" autocomplete="tel" aria-describedby="phoneError" placeholder="04XX XXX XXX">
               <span class="form-error" id="phoneError">Please enter a valid Australian phone number.</span>
             </div>
             <div class="form-group" id="serviceGroup">
-              <label class="form-label">Service interested in <span class="required">*</span></label>
-              <select class="form-select" id="formService" required>
+              <label class="form-label" for="formService">Service interested in <span class="required">*</span></label>
+              <select class="form-select" id="formService" name="service" aria-describedby="serviceError" required>
                 <option value="" disabled selected>Select a service</option>
                 <option value="website-sprint">Website Sprint</option>
                 <option value="automation-sprint">Automation Sprint</option>
@@ -2024,8 +2037,8 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Tell us about your project</label>
-            <textarea class="form-textarea" id="formMessage" placeholder="What are you looking for? Any timeline or budget in mind? (optional)"></textarea>
+            <label class="form-label" for="formMessage">Tell us about your project</label>
+            <textarea class="form-textarea" id="formMessage" name="message" placeholder="What are you looking for? Any timeline or budget in mind? (optional)"></textarea>
           </div>
           <div class="form-submit">
             <button type="submit" class="btn-primary">Send Project Brief</button>
@@ -2037,9 +2050,9 @@
           </div>
         </form>
 
-        <div class="form-success" id="formSuccess">
-          <h3>Thanks for reaching out.</h3>
-          <p>We've received your enquiry and will be in touch within 24 hours.</p>
+        <div class="form-success" id="formSuccess" aria-live="polite">
+          <h3>Your email app should open now.</h3>
+          <p>If it did not, email us at hello@vanguarddigital.com.au with your project brief.</p>
         </div>
 
         <p class="final-cta-meta reveal">Melbourne, Australia &nbsp;&bull;&nbsp; Vanguard Digital Solutions Pty Ltd &nbsp;&bull;&nbsp; ABN 41 695 249 793</p>
@@ -2049,7 +2062,7 @@
 
   <!-- Sticky Mobile CTA -->
   <div class="sticky-mobile-cta" id="stickyCta">
-    <a href="#contact" class="btn-primary">Start a Project</a>
+    <a href="#contact" class="btn-primary">Contact Us</a>
   </div>
 
   <!-- ============================================
@@ -2083,7 +2096,7 @@
           <h4>Get In Touch</h4>
           <a href="mailto:hello@vanguarddigital.com.au">hello@vanguarddigital.com.au</a>
           <a href="https://vanguarddigital.com.au">vanguarddigital.com.au</a>
-          <a href="#contact" class="accent-link">Start a Project</a>
+          <a href="#contact" class="accent-link">Contact Us</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -2112,20 +2125,32 @@
     const mobileNav = document.getElementById('mobileNav');
     const mobileClose = document.getElementById('mobileClose');
 
-    hamburger.addEventListener('click', () => {
+    function openMobileNav() {
       mobileNav.classList.add('open');
       document.body.style.overflow = 'hidden';
-    });
+      hamburger.setAttribute('aria-expanded', 'true');
+      mobileNav.setAttribute('aria-hidden', 'false');
+    }
+
+    hamburger.addEventListener('click', openMobileNav);
 
     function closeMobileNav() {
       mobileNav.classList.remove('open');
       document.body.style.overflow = '';
+      hamburger.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
     }
 
     mobileClose.addEventListener('click', closeMobileNav);
 
     document.querySelectorAll('.mobile-nav a').forEach(link => {
       link.addEventListener('click', closeMobileNav);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        closeMobileNav();
+      }
     });
 
     /* --- Scroll reveal (IntersectionObserver) --- */
@@ -2219,6 +2244,7 @@
       const email = document.getElementById('formEmail').value.trim();
       const phone = document.getElementById('formPhone').value.trim();
       const service = document.getElementById('formService').value;
+      const message = document.getElementById('formMessage').value.trim();
 
       if (!name || name.length < 2) { setError('nameGroup', true); valid = false; } else { setError('nameGroup', false); }
       if (!validateEmail(email)) { setError('emailGroup', true); valid = false; } else { setError('emailGroup', false); }
@@ -2227,8 +2253,22 @@
       if (!service) { setError('serviceGroup', true); valid = false; } else { setError('serviceGroup', false); }
 
       if (valid) {
-        contactForm.style.display = 'none';
+        const serviceSelect = document.getElementById('formService');
+        const serviceLabel = serviceSelect.options[serviceSelect.selectedIndex]?.text || service;
+        const subject = encodeURIComponent(`Project Brief - ${name}`);
+        const body = encodeURIComponent([
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Phone: ${phone || 'Not provided'}`,
+          `Service: ${serviceLabel}`,
+          '',
+          'Project details:',
+          message || 'Not provided'
+        ].join('\n'));
+        window.location.href = `mailto:hello@vanguarddigital.com.au?subject=${subject}&body=${body}`;
+
         formSuccess.style.display = 'block';
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         if (stickyCta) stickyCta.classList.remove('visible');
       }
     });
