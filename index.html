@@ -275,37 +275,51 @@
        2. HERO
     ============================================ */
     .hero {
-      min-height: 100vh;
+      min-height: 96vh;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      text-align: center;
-      padding-top: 72px;
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(
-          ellipse 80% 50% at 50% 0%,
-          rgba(79, 70, 229, 0.07) 0%,
-          transparent 50%
-        ),
+        radial-gradient(ellipse 72% 58% at 76% 8%, rgba(79, 70, 229, 0.18) 0%, transparent 58%),
+        radial-gradient(ellipse 60% 40% at 16% 4%, rgba(99, 102, 241, 0.12) 0%, transparent 62%),
         var(--midnight);
     }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent 78%);
+      pointer-events: none;
+    }
     .hero-content {
-      display: flex;
-      flex-direction: column;
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: 56px;
       align-items: center;
+      padding: 150px 0 98px;
       position: relative;
       z-index: 1;
+    }
+    .hero-copy {
+      text-align: left;
+      max-width: 760px;
     }
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      border: 1px solid rgba(79, 70, 229, 0.3);
+      border: 1px solid rgba(79, 70, 229, 0.34);
       border-radius: 50px;
-      padding: 8px 20px;
-      background: rgba(79, 70, 229, 0.08);
+      padding: 8px 18px;
+      background: rgba(79, 70, 229, 0.12);
+      box-shadow: 0 8px 24px rgba(10, 10, 15, 0.32);
     }
     .hero-badge-dot {
       width: 8px;
@@ -326,11 +340,11 @@
     }
     .hero h1 {
       font-family: var(--font-heading);
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-size: clamp(2.7rem, 5.2vw, 5.05rem);
       letter-spacing: -0.03em;
-      line-height: 1.1;
-      max-width: 800px;
-      margin-top: 32px;
+      line-height: 1.03;
+      max-width: 900px;
+      margin-top: 28px;
       color: var(--white);
     }
     .hero h1 em {
@@ -338,38 +352,40 @@
       color: var(--accent-light);
     }
     .hero-subtitle {
-      font-size: 1.15rem;
-      color: var(--grey-400);
-      line-height: 1.7;
-      max-width: 580px;
+      font-size: 1.07rem;
+      color: #B4B6C6;
+      line-height: 1.8;
+      max-width: 620px;
       margin-top: 24px;
     }
     .hero-buttons {
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-top: 40px;
+      margin-top: 34px;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
     }
     .trust-bar {
       display: flex;
       align-items: center;
-      gap: 0;
-      margin-top: 56px;
+      gap: 10px;
+      margin-top: 36px;
+      flex-wrap: wrap;
     }
     .trust-item {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--grey-600);
-      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      color: #A0A4B8;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 0 24px;
-    }
-    .trust-item:not(:last-child) {
-      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.02);
     }
     .trust-dot {
       width: 6px;
@@ -378,11 +394,126 @@
       background: var(--green);
       flex-shrink: 0;
     }
+    .hero-logos {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .hero-logos span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--grey-600);
+      text-transform: uppercase;
+      padding: 6px 8px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .hero-logos .hero-logo-label {
+      border: none;
+      padding-left: 0;
+      color: #7E839A;
+      letter-spacing: 0.16em;
+      background: none;
+    }
+    .hero-panel {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      background: linear-gradient(170deg, rgba(26, 26, 34, 0.96), rgba(14, 14, 22, 0.98));
+      padding: 28px;
+      box-shadow: 0 28px 70px rgba(3, 6, 19, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      border-radius: 17px;
+      border: 1px solid rgba(99, 102, 241, 0.18);
+      pointer-events: none;
+    }
+    .hero-panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .hero-panel-title {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #A0A4B8;
+    }
+    .hero-panel-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #B8BBCC;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 999px;
+      padding: 5px 9px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .hero-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .hero-metric {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 12px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .hero-metric-value {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .hero-metric-label {
+      margin-top: 7px;
+      font-size: 0.78rem;
+      color: var(--grey-400);
+      line-height: 1.5;
+    }
+    .hero-list {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .hero-list li {
+      font-size: 0.88rem;
+      color: #B4B6C6;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.55;
+    }
+    .hero-list li::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      margin-top: 5px;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.16);
+    }
     .scroll-indicator {
-      margin-top: 80px;
+      margin-bottom: 34px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
     .scroll-line {
       width: 1px;
@@ -449,6 +580,32 @@
       margin-top: 6px;
       line-height: 1.45;
     }
+    .proof-clients {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .proof-clients span {
+      font-family: var(--font-mono);
+      font-size: 0.69rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: #9DA1B4;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 8px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .proof-clients .proof-clients-label {
+      border: none;
+      background: none;
+      padding-left: 0;
+      color: #6F748B;
+      letter-spacing: 0.15em;
+    }
 
     /* ============================================
        4. PROOF SNAPSHOTS
@@ -484,6 +641,12 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 14px;
       padding: 30px;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .proof-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99, 102, 241, 0.36);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
     }
     .proof-metric {
       font-family: var(--font-mono);
@@ -1208,6 +1371,24 @@
        RESPONSIVE — TABLET
     ============================================ */
     @media (max-width: 1024px) {
+      .hero {
+        min-height: auto;
+      }
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding: 130px 0 72px;
+      }
+      .hero-copy {
+        max-width: 100%;
+      }
+      .hero-panel {
+        width: min(100%, 620px);
+        justify-self: center;
+      }
+      .scroll-indicator {
+        margin-bottom: 22px;
+      }
       .proof-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1250,13 +1431,21 @@
       .hamburger {
         display: flex;
       }
+      .hero-content {
+        padding: 122px 0 58px;
+      }
+      .hero-copy {
+        text-align: center;
+      }
       .hero h1 {
-        font-size: clamp(2.2rem, 8vw, 3rem);
+        font-size: clamp(2.1rem, 8vw, 3.1rem);
       }
       .hero-buttons {
         flex-direction: column;
         width: 100%;
         max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
       }
       .hero-buttons .btn-primary,
       .hero-buttons .btn-secondary {
@@ -1269,8 +1458,20 @@
         gap: 8px;
       }
       .trust-item {
-        border-right: none !important;
-        padding: 8px 16px;
+        padding: 8px 10px;
+      }
+      .hero-logos {
+        justify-content: center;
+      }
+      .hero-panel {
+        padding: 22px 16px;
+      }
+      .hero-panel-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-metric-grid {
+        grid-template-columns: 1fr;
       }
       .stats-row {
         grid-template-columns: repeat(2, 1fr);
@@ -1372,29 +1573,71 @@
        2. HERO
   ============================================ -->
   <section class="hero" id="hero">
-    <div class="hero-content">
-      <div class="hero-badge reveal">
-        <span class="hero-badge-dot"></span>
-        <span>Now booking Q2 2026 projects</span>
-      </div>
-      <h1 class="reveal">Websites and AI workflows that win more <em>qualified jobs.</em></h1>
-      <p class="hero-subtitle reveal">We help Australian service businesses turn traffic into booked work with conversion-focused websites, automated follow-up, and lead systems that run every day.</p>
-      <div class="hero-buttons reveal">
-        <a href="#contact" class="btn-primary">Book a Strategy Call</a>
-        <a href="#services" class="btn-secondary">See Services &darr;</a>
-      </div>
-      <div class="trust-bar reveal">
-        <div class="trust-item">
-          <span class="trust-dot"></span>
-          Melbourne, Australia
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <div class="hero-badge reveal">
+          <span class="hero-badge-dot"></span>
+          <span>Now booking Q2 2026 projects</span>
         </div>
-        <div class="trust-item">Fixed-scope delivery</div>
-        <div class="trust-item">Built in your accounts</div>
-        <div class="trust-item">Response within 24 hours</div>
+        <h1 class="reveal">Websites and AI workflows that win more <em>qualified jobs.</em></h1>
+        <p class="hero-subtitle reveal">We help Australian service businesses turn traffic into booked work with conversion-focused websites, automated follow-up, and lead systems that run every day.</p>
+        <div class="hero-buttons reveal">
+          <a href="#contact" class="btn-primary">Book a Strategy Call</a>
+          <a href="#services" class="btn-secondary">See Services &darr;</a>
+        </div>
+        <div class="trust-bar reveal">
+          <div class="trust-item">
+            <span class="trust-dot"></span>
+            Melbourne, Australia
+          </div>
+          <div class="trust-item">Fixed-scope delivery</div>
+          <div class="trust-item">Built in your accounts</div>
+          <div class="trust-item">Response within 24 hours</div>
+        </div>
+        <div class="hero-logos reveal">
+          <span class="hero-logo-label">Integrates with</span>
+          <span>n8n</span>
+          <span>HubSpot</span>
+          <span>GoHighLevel</span>
+          <span>Google Ads</span>
+          <span>Meta Ads</span>
+        </div>
       </div>
-      <div class="scroll-indicator reveal">
-        <div class="scroll-line"></div>
-      </div>
+      <aside class="hero-panel reveal">
+        <div class="hero-panel-head">
+          <span class="hero-panel-title">Campaign Snapshot</span>
+          <span class="hero-panel-pill">Live Ops</span>
+        </div>
+
+        <div class="hero-metric-grid">
+          <div class="hero-metric">
+            <div class="hero-metric-value">2.1x</div>
+            <div class="hero-metric-label">Higher enquiry conversion after website rebuild</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-value">23 hrs</div>
+            <div class="hero-metric-label">Weekly admin saved with follow-up automations</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-value">7-14d</div>
+            <div class="hero-metric-label">Typical launch window for Website Sprint</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-value">24h</div>
+            <div class="hero-metric-label">Average response time on inbound leads</div>
+          </div>
+        </div>
+
+        <ul class="hero-list">
+          <li>Clear scope, fixed investment, no lock-in contracts.</li>
+          <li>Built inside your stack so your team keeps ownership.</li>
+          <li>Focused on booked jobs, not vanity metrics.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <div class="scroll-indicator reveal">
+      <div class="scroll-line"></div>
     </div>
   </section>
 
@@ -1421,6 +1664,14 @@
           <div class="stat-label">Strategy call - always free</div>
         </div>
       </div>
+      <div class="proof-clients reveal">
+        <span class="proof-clients-label">Recent sectors</span>
+        <span>Trade Services</span>
+        <span>Property</span>
+        <span>Health</span>
+        <span>Professional Services</span>
+        <span>Hospitality</span>
+      </div>
     </div>
   </section>
 
@@ -1431,7 +1682,7 @@
     <div class="container">
       <div class="proof-header">
         <span class="label reveal">RECENT OUTCOMES</span>
-        <h2 class="section-title reveal">Proof from real delivery, not agency fluff.</h2>
+        <h2 class="section-title reveal">Measured outcomes from live client systems.</h2>
         <p class="section-subtitle reveal">A few examples of what changes when website performance and operations are designed as one system.</p>
       </div>
 
