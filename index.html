@@ -4,34 +4,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#09101b">
-  <title>Vanguard Digital Solutions | Websites, Automation, and Growth Systems</title>
+  <meta name="theme-color" content="#08090E">
+  <title>Vanguard Digital Solutions | AI Growth Systems for Service Businesses</title>
 
   <meta name="description"
-    content="Vanguard Digital Solutions builds conversion-focused websites and automation systems for Australian trade and service businesses.">
+    content="Vanguard Digital Solutions is an AI agency in Melbourne building conversion websites, lead-qualification workflows, and automation systems for service businesses.">
   <link rel="canonical" href="https://vanguarddigital.com.au/">
   <meta name="robots" content="index,follow">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Vanguard Digital Solutions">
-  <meta property="og:title" content="Vanguard Digital Solutions | Websites, Automation, and Growth Systems">
+  <meta property="og:title" content="Vanguard Digital Solutions | AI Growth Systems for Service Businesses">
   <meta property="og:description"
-    content="Conversion-focused websites, AI automation, and growth systems for Australian service businesses.">
+    content="We build high-conversion websites and AI-enabled sales operations that turn enquiries into booked work.">
   <meta property="og:url" content="https://vanguarddigital.com.au/">
   <meta property="og:image" content="https://vanguarddigital.com.au/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Vanguard Digital Solutions | Websites, Automation, and Growth Systems">
+  <meta name="twitter:title" content="Vanguard Digital Solutions | AI Growth Systems for Service Businesses">
   <meta name="twitter:description"
-    content="Conversion-focused websites, AI automation, and growth systems for Australian service businesses.">
+    content="Conversion websites, AI qualification, and automation for Australian service businesses.">
   <meta name="twitter:image" content="https://vanguarddigital.com.au/og-image.jpg">
   <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2306080d'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%2334A4FF'/%3E%3C/svg%3E">
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070c14'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%2337B4FF'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:opsz,wght@14..32,400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
 
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/bento.css">
@@ -41,56 +45,122 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+
+  <!-- ===== PHASE 1 TEST SECTION - REMOVE AFTER VERIFICATION ===== -->
+  <div class="section" id="phase1-test" style="border-bottom: 1px solid var(--color-border);">
+    <div class="container stack">
+      <span class="mono">Design Foundation Test</span>
+      <h1>Hero Heading in Instrument Serif</h1>
+      <h2>Section Heading H2</h2>
+      <h3>Subsection Heading H3</h3>
+      <h4>Card Heading H4</h4>
+      <p>Body paragraph in Inter. This text should be off-white (#9B9BA8 muted) on an off-black (#08090E) background. The spacing between elements comes from the stack utility class. No pure black or pure white anywhere.</p>
+      <p class="text-lead">Lead paragraph with larger text size for introductory content.</p>
+      <p><small>Small text for captions and fine print.</small></p>
+      <p class="text-accent">This text uses the AA-safe accent color for body text.</p>
+      <div class="flow">
+        <span class="mono">Label One</span>
+        <span class="mono">Label Two</span>
+        <span class="mono">Label Three</span>
+      </div>
+    </div>
+  </div>
+  <!-- ===== END PHASE 1 TEST SECTION ===== -->
+
   <nav class="navbar" id="navbar" aria-label="Primary">
     <div class="container nav-container">
-      <a href="#" class="logo">VANGUARD DIGITAL SOLUTIONS</a>
-      <div class="nav-links">
-        <a href="#work">Case Studies</a>
+      <a href="#hero" class="logo">
+        <span class="logo-mark" aria-hidden="true"></span>
+        <span>Vanguard Digital</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#work">Outcomes</a>
         <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
-        <a href="#contact" class="btn btn-primary btn-nav">Start a Project</a>
+        <a href="#approach">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn btn-primary btn-nav">Book Strategy Call</a>
       </div>
     </div>
   </nav>
 
-  <main>
+  <main id="mainContent">
     <section class="hero" id="hero">
       <div class="hero-bg"></div>
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
             <div class="hero-badge reveal">
-              <span class="status-dot"></span>
-              <span class="mono">Melbourne digital partner for service and trade businesses</span>
+              <span class="status-dot" aria-hidden="true"></span>
+              <span class="mono">AI growth agency for Australian service businesses</span>
             </div>
-            <h1 class="reveal d-100 gradient-text">Premium websites and AI workflows that turn demand into
-              <em>booked jobs.</em>
-            </h1>
-            <p class="hero-subtitle reveal d-200">We design high-conversion websites and practical automation systems so
-              your team can respond faster, follow up consistently, and close more quality work.</p>
+
+            <h1 class="reveal d-100 gradient-text">Build a sales engine that turns more enquiries into booked revenue.</h1>
+
+            <p class="hero-subtitle reveal d-200">
+              We design conversion websites, AI qualification flows, and operational automation so your team responds
+              faster, follows up consistently, and closes higher-value work.
+            </p>
+
             <div class="hero-actions reveal d-300">
               <a href="#contact" class="btn btn-primary">Book Strategy Call</a>
-              <a href="#work" class="btn btn-secondary">See Case Studies</a>
+              <a href="#work" class="btn btn-secondary">See Client Outcomes</a>
             </div>
-            <div class="hero-trust reveal d-400">
-              <span class="hero-chip mono">24h Scope Response</span>
-              <span class="hero-chip mono">Fixed Project Investment</span>
-              <span class="hero-chip mono">Built for Australian Service Markets</span>
+
+            <div class="hero-trust reveal d-400" aria-label="Key proof points">
+              <span class="hero-chip mono">14-30 day launch sprints</span>
+              <span class="hero-chip mono">AUS-based delivery</span>
+              <span class="hero-chip mono">No platform lock-in</span>
             </div>
           </div>
 
-          <div class="hero-visual reveal d-300">
-            <div class="hero-image-container glass">
-              <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=2070"
-                alt="Team reviewing website and campaign performance data" id="heroImage">
+          <div class="hero-visual reveal d-300" aria-hidden="true">
+            <div class="browser-mockup glass">
+              <div class="browser-topbar">
+                <div class="browser-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="browser-url mono">vanguarddigital.com.au</div>
+              </div>
+              <div class="browser-body">
+                <div class="browser-hero-block">
+                  <div class="browser-heading-line"></div>
+                  <div class="browser-heading-line short"></div>
+                  <div class="browser-subtitle-line"></div>
+                </div>
+                <div class="browser-cards-row">
+                  <div class="browser-card">
+                    <div class="browser-card-icon"></div>
+                    <div class="browser-card-line"></div>
+                    <div class="browser-card-line short"></div>
+                  </div>
+                  <div class="browser-card">
+                    <div class="browser-card-icon"></div>
+                    <div class="browser-card-line"></div>
+                    <div class="browser-card-line short"></div>
+                  </div>
+                  <div class="browser-card">
+                    <div class="browser-card-icon"></div>
+                    <div class="browser-card-line"></div>
+                    <div class="browser-card-line short"></div>
+                  </div>
+                </div>
+                <div class="browser-cta-row">
+                  <div class="browser-cta-btn"></div>
+                </div>
+              </div>
             </div>
+
             <div class="hero-float-card glass reveal d-400">
-              <span class="mono">Live Snapshot</span>
-              <h3 class="h-font gradient-text">Pipeline Dashboard</h3>
+              <span class="mono">Pipeline Snapshot</span>
+              <h3 class="h-font gradient-text">Qualified Lead Flow Active</h3>
               <ul class="hero-mini-list">
-                <li>+38% faster lead response time</li>
-                <li>Automated follow-up sequencing</li>
-                <li>Real-time lead stage visibility</li>
+                <li>Instant triage + routing by service type</li>
+                <li>Automated SMS and email follow-up</li>
+                <li>CRM pipeline visibility for every enquiry</li>
               </ul>
             </div>
           </div>
@@ -101,32 +171,31 @@
     <section class="proof-strip">
       <div class="container proof-wrap">
         <div class="proof-sectors reveal">
-          <span class="mono proof-label">Teams we support</span>
+          <span class="mono proof-label">Teams We Support</span>
           <div class="sector-pills">
-            <span class="sector-pill">Electrical</span>
-            <span class="sector-pill">HVAC</span>
-            <span class="sector-pill">Construction</span>
+            <span class="sector-pill">Electrical & HVAC</span>
+            <span class="sector-pill">Construction & Renovations</span>
+            <span class="sector-pill">Allied Health</span>
             <span class="sector-pill">Professional Services</span>
-            <span class="sector-pill">Medical & Allied Health</span>
           </div>
         </div>
 
         <div class="metrics-row reveal d-100">
           <article class="metric-card glass">
-            <div class="metric-value mono">2.1x</div>
-            <p class="metric-label">Median conversion lift</p>
+            <div class="metric-value h-font">2-5 min</div>
+            <p class="metric-label">Typical first-response window after automation launch</p>
           </article>
           <article class="metric-card glass">
-            <div class="metric-value mono">23h</div>
-            <p class="metric-label">Admin time removed weekly</p>
+            <div class="metric-value h-font">1 Stack</div>
+            <p class="metric-label">Website, CRM, calendar, and lead routing connected cleanly</p>
           </article>
           <article class="metric-card glass">
-            <div class="metric-value mono">34%</div>
-            <p class="metric-label">Revenue growth range</p>
+            <div class="metric-value h-font">Weekly</div>
+            <p class="metric-label">Decision dashboard with clear pipeline and ROI visibility</p>
           </article>
           <article class="metric-card glass">
-            <div class="metric-value mono">7d</div>
-            <p class="metric-label">Fastest launch sprint</p>
+            <div class="metric-value h-font">Owned</div>
+            <p class="metric-label">You keep your site, flows, assets, and platform access</p>
           </article>
         </div>
       </div>
@@ -135,8 +204,8 @@
     <section class="quote-band">
       <div class="container">
         <blockquote class="quote-card glass reveal">
-          <p>“Vanguard rebuilt our website and lead follow-up workflow in under a month. Lead quality improved
-            immediately and our team stopped leaking enquiries.”</p>
+          <p>"Vanguard rebuilt our website and lead-response workflow in under a month. We stopped leaking qualified
+            enquiries, and our team finally had one clear process to follow."</p>
           <footer class="mono">Operations Director, Multi-Site Electrical Group</footer>
         </blockquote>
       </div>
@@ -145,49 +214,53 @@
     <section class="bento-section" id="work">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-eyebrow mono">Selected Work</span>
-          <h2 class="section-title h-font gradient-text">Recent builds delivering measurable outcomes.</h2>
-          <p class="section-copy">Every engagement is scoped around the real bottleneck: conversion rate, response
-            speed, lead quality, or handover friction.</p>
+          <span class="section-eyebrow mono">Client Outcomes</span>
+          <h2 class="section-title h-font gradient-text">Execution built around revenue movement, not vanity metrics.</h2>
+          <p class="section-copy">
+            Each sprint starts with the bottleneck in your pipeline. We then design the website and AI operations layer
+            to remove friction between enquiry, qualification, and handover.
+          </p>
         </div>
 
         <div class="bento-grid">
-          <article class="bento-item bento-lg glass reveal">
-            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2026"
-              alt="Service website redesign case study" loading="lazy">
-            <div class="bento-content">
-              <span class="mono">Website Sprint</span>
-              <h3 class="h-font">2.1x Conversion Uplift</h3>
-              <p>Conversion-focused rebuild for a multi-location trade operator.</p>
-            </div>
+          <article class="bento-item bento-lg case-card glass reveal">
+            <span class="case-meta mono">Electrical Services Group</span>
+            <h3 class="h-font">From inbox chaos to a structured AI-qualified pipeline.</h3>
+            <p>New conversion pages, smarter intake forms, and CRM routing by service and location reduced response lag
+              and improved handover quality.</p>
+            <ul class="case-metrics">
+              <li><strong>Lead triage:</strong> automated in real time</li>
+              <li><strong>Follow-up:</strong> SMS + email sequence standardised</li>
+              <li><strong>Visibility:</strong> every opportunity tracked to status</li>
+            </ul>
           </article>
 
-          <article class="bento-item bento-md glass reveal d-100">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2070"
-              alt="Automation workflow metrics dashboard" loading="lazy">
-            <div class="bento-content">
-              <span class="mono">Automation</span>
-              <h3 class="h-font">23h Saved Weekly</h3>
-              <p>Lead routing, quoting, and follow-up automation flow.</p>
-            </div>
+          <article class="bento-item bento-md case-card glass reveal d-100">
+            <span class="case-meta mono">Allied Health Network</span>
+            <h3 class="h-font">Booking friction removed across multiple locations.</h3>
+            <p>We restructured landing paths by service type, automated eligibility checks, and synced triaged enquiries
+              directly to clinic calendars.</p>
+            <ul class="case-metrics compact">
+              <li><strong>Routing:</strong> by location and care type</li>
+              <li><strong>Ops load:</strong> reduced manual back-and-forth</li>
+            </ul>
           </article>
 
-          <article class="bento-item bento-sm glass reveal d-200 bento-note">
-            <div class="bento-content">
-              <span class="mono">Delivery Standard</span>
-              <h3 class="h-font">Fixed-Scope Execution</h3>
-              <p>Clear milestones, accountable timelines, and no scope ambiguity.</p>
-            </div>
+          <article class="bento-item bento-sm case-card glass reveal d-200">
+            <span class="case-meta mono">Renovation Studio</span>
+            <h3 class="h-font">Higher intent enquiries, fewer low-fit briefs.</h3>
+            <p>Positioning, qualification, and budget-framing logic aligned to premium project criteria.</p>
           </article>
 
-          <article class="bento-item bento-wide glass reveal d-100">
-            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2070"
-              alt="Growth campaign performance review" loading="lazy">
-            <div class="bento-content">
-              <span class="mono">Growth Systems</span>
-              <h3 class="h-font">34% Revenue Expansion</h3>
-              <p>Targeted acquisition stack with conversion-driven reporting.</p>
-            </div>
+          <article class="bento-item bento-wide case-card glass reveal d-100">
+            <span class="case-meta mono">Professional Services Firm</span>
+            <h3 class="h-font">Pipeline reporting rebuilt for faster leadership decisions.</h3>
+            <p>We consolidated acquisition data, qualification status, and close outcomes into one clear weekly view.
+            </p>
+            <ul class="case-metrics compact">
+              <li><strong>Reporting:</strong> no spreadsheet patchwork</li>
+              <li><strong>Forecasting:</strong> cleaner by source and stage</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -196,59 +269,101 @@
     <section class="section-padding services-section" id="services">
       <div class="container">
         <div class="section-head reveal">
-          <span class="section-eyebrow mono">Capabilities</span>
-          <h2 class="section-title h-font gradient-text">Modular systems engineered for quality growth.</h2>
-          <p class="section-copy">Engage one sprint or deploy the full system. Everything is designed to convert,
-            integrate cleanly, and scale with your operations.</p>
+          <span class="section-eyebrow mono">Services</span>
+          <h2 class="section-title h-font gradient-text">AI systems built to increase conversion and operational speed.</h2>
+          <p class="section-copy">Choose a focused sprint or deploy the full growth stack. Everything is scoped for
+            practical implementation and measurable business impact.</p>
         </div>
 
         <div class="bento-grid services-grid">
           <article class="service-card glass reveal bento-sm">
-            <div class="service-icon">
+            <div class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                 <line x1="3" y1="9" x2="21" y2="9"></line>
                 <line x1="9" y1="21" x2="9" y2="9"></line>
               </svg>
             </div>
-            <h3 class="h-font service-title">Conversion Website Sprint</h3>
-            <p class="service-desc">High-end, fast, and trust-heavy websites tuned for service-business buyers.</p>
+            <h3 class="h-font service-title">AI Website & Funnel Build</h3>
+            <p class="service-desc">Premium websites with sharp positioning, stronger trust architecture, and
+              conversion-focused journey design.</p>
             <ul class="service-points">
-              <li>Custom buyer journey architecture</li>
-              <li>Landing page conversion logic</li>
-              <li>Sales-driven copy structure</li>
+              <li>Offer-led page architecture</li>
+              <li>Conversion copy and CTA logic</li>
+              <li>Performance-first technical setup</li>
             </ul>
           </article>
 
           <article class="service-card glass reveal d-100 bento-sm">
-            <div class="service-icon">
+            <div class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
               </svg>
             </div>
-            <h3 class="h-font service-title">AI Workflow Automation</h3>
-            <p class="service-desc">Connect lead capture to operations so no qualified opportunity falls through.</p>
+            <h3 class="h-font service-title">Lead Qualification Automation</h3>
+            <p class="service-desc">Capture, score, and route opportunities automatically so high-intent enquiries
+              move to your team fast.</p>
             <ul class="service-points">
-              <li>CRM + form routing automation</li>
-              <li>Quote and follow-up sequencing</li>
-              <li>Internal handover visibility</li>
+              <li>Smart intake and triage workflows</li>
+              <li>CRM and calendar integration</li>
+              <li>Automated follow-up sequencing</li>
             </ul>
           </article>
 
           <article class="service-card glass reveal d-200 bento-sm">
-            <div class="service-icon">
+            <div class="service-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
               </svg>
             </div>
-            <h3 class="h-font service-title">Demand Generation Stack</h3>
-            <p class="service-desc">Acquisition systems designed around high-intent local demand and conversion ROI.</p>
+            <h3 class="h-font service-title">Sales & Handover Workflows</h3>
+            <p class="service-desc">Replace ad hoc processes with clear workflow states from first enquiry through
+              quote, follow-up, and delivery handover.</p>
             <ul class="service-points">
-              <li>Offer-positioned campaigns</li>
-              <li>Qualified lead scoring</li>
-              <li>Performance decision dashboards</li>
+              <li>Quote and proposal automation</li>
+              <li>Task assignment and escalation logic</li>
+              <li>SOP-aligned process design</li>
             </ul>
           </article>
+
+          <article class="service-card glass reveal d-300 bento-sm">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <h3 class="h-font service-title">Decision Dashboards</h3>
+            <p class="service-desc">Leadership reporting that connects source, lead quality, and close outcomes so
+              growth decisions are faster and clearer.</p>
+            <ul class="service-points">
+              <li>Weekly KPI and funnel views</li>
+              <li>Source-to-revenue tracking</li>
+              <li>Optimization roadmap priorities</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack-section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="section-eyebrow mono">Platform Integrations</span>
+          <h2 class="section-title h-font gradient-text">We fit into your existing stack without friction.</h2>
+        </div>
+        <div class="stack-grid reveal d-100" aria-label="Supported platforms">
+          <span class="stack-chip mono">HubSpot</span>
+          <span class="stack-chip mono">GoHighLevel</span>
+          <span class="stack-chip mono">Pipedrive</span>
+          <span class="stack-chip mono">n8n</span>
+          <span class="stack-chip mono">Zapier</span>
+          <span class="stack-chip mono">Calendly</span>
+          <span class="stack-chip mono">Google Workspace</span>
+          <span class="stack-chip mono">Meta Ads</span>
+          <span class="stack-chip mono">Google Ads</span>
+          <span class="stack-chip mono">Looker Studio</span>
         </div>
       </div>
     </section>
@@ -256,48 +371,93 @@
     <section class="process-section" id="approach">
       <div class="container">
         <div class="section-head center reveal">
-          <span class="section-eyebrow mono">How We Deliver</span>
-          <h2 class="section-title h-font gradient-text">Strategic process, not random execution.</h2>
-          <p class="section-copy">Every engagement follows a clear sequence so results improve quickly without
-            compromising quality.</p>
+          <span class="section-eyebrow mono">Delivery Process</span>
+          <h2 class="section-title h-font gradient-text">A clear operating model from diagnosis to scale.</h2>
+          <p class="section-copy">Every project is run as a practical implementation plan, with timelines, owners,
+            and measurable outcomes.</p>
         </div>
 
         <div class="process-grid">
           <article class="process-card glass reveal">
             <span class="process-step mono">01</span>
             <h3 class="process-title h-font">Diagnose</h3>
-            <p class="process-copy">We audit your current funnel and identify where qualified opportunities leak.</p>
+            <p class="process-copy">We map your current customer journey and identify where quality opportunities are
+              leaking.</p>
           </article>
           <article class="process-card glass reveal d-100">
             <span class="process-step mono">02</span>
-            <h3 class="process-title h-font">Build</h3>
-            <p class="process-copy">We craft your website, automation, and tracking stack around conversion intent.</p>
+            <h3 class="process-title h-font">Architect</h3>
+            <p class="process-copy">You get a fixed-scope execution plan covering website, AI automation, and tracking
+              requirements.</p>
           </article>
           <article class="process-card glass reveal d-200">
             <span class="process-step mono">03</span>
-            <h3 class="process-title h-font">Scale</h3>
-            <p class="process-copy">We refine campaigns and workflows using real performance data and lead quality.</p>
+            <h3 class="process-title h-font">Launch</h3>
+            <p class="process-copy">We deploy the stack, test the flow end-to-end, and ensure your team can run it
+              confidently.</p>
           </article>
+          <article class="process-card glass reveal d-300">
+            <span class="process-step mono">04</span>
+            <h3 class="process-title h-font">Optimise</h3>
+            <p class="process-copy">We refine conversion and workflow quality using live data, not assumptions.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-eyebrow mono">FAQ</span>
+          <h2 class="section-title h-font gradient-text">Direct answers before we start.</h2>
+        </div>
+
+        <div class="faq-grid">
+          <details class="faq-item glass reveal">
+            <summary class="h-font">How quickly can we launch?</summary>
+            <p>Most website and automation sprints launch in 14 to 30 days, depending on integrations, approvals, and
+              scope depth.</p>
+          </details>
+
+          <details class="faq-item glass reveal d-100">
+            <summary class="h-font">Do you replace our existing tools?</summary>
+            <p>Only when needed. We usually keep your current systems and improve the workflow between them to avoid
+              disruption.</p>
+          </details>
+
+          <details class="faq-item glass reveal d-200">
+            <summary class="h-font">Do we own the assets?</summary>
+            <p>Yes. You retain ownership of your website, automation flows, CRM configuration, and supporting
+              documentation.</p>
+          </details>
+
+          <details class="faq-item glass reveal d-300">
+            <summary class="h-font">Is this retainers-only?</summary>
+            <p>No. Most clients start with a fixed-scope sprint. Ongoing optimisation is optional and performance-led.
+            </p>
+          </details>
         </div>
       </div>
     </section>
 
     <section class="contact-section" id="contact">
       <div class="container contact-layout">
-        <aside class="contact-side glass reveal">
+        <aside class="contact-side reveal">
           <span class="section-eyebrow mono">Start a Project</span>
-          <h2 class="section-title h-font">Get a fixed-scope growth plan.</h2>
-          <p class="section-copy">Share where your sales process is losing momentum and we will send a practical plan
-            with timeline, investment range, and recommended sprint sequence.</p>
+          <h2 class="section-title h-font">Get a fixed-scope AI growth plan.</h2>
+          <p class="section-copy">Share your current bottleneck and we will send a practical strategy outline with
+            recommended sprint sequence, timeline, and investment range.</p>
           <ul class="contact-benefits">
-            <li>Strategy response within 1 business day</li>
-            <li>Clear scope before any engagement starts</li>
-            <li>No locked contracts or hidden implementation layers</li>
+            <li>Initial strategy response in one business day</li>
+            <li>Clear scope before any build starts</li>
+            <li>No hidden implementation layers</li>
           </ul>
-          <p class="contact-meta mono">Melbourne, Australia | Vanguard Digital Solutions Pty Ltd | ABN 41 695 249 793</p>
+          <p class="contact-meta mono">Melbourne, Australia | Vanguard Digital Solutions Pty Ltd | ABN 41 695 249 793
+          </p>
         </aside>
 
-        <form class="contact-form reveal glass" id="contactForm" novalidate>
+        <form class="contact-form reveal" id="contactForm" novalidate>
           <div class="form-row-3">
             <div class="form-group">
               <label class="form-label" for="fullName">Full Name *</label>
@@ -306,7 +466,8 @@
             </div>
             <div class="form-group">
               <label class="form-label" for="email">Email *</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="john@business.com.au" required>
+              <input type="email" id="email" name="email" class="form-input" placeholder="john@business.com.au"
+                required>
               <span class="form-error-msg">Valid email is required</span>
             </div>
             <div class="form-group">
@@ -320,11 +481,12 @@
           <div class="form-group form-group-spacing">
             <label class="form-label" for="service">Service Interested In *</label>
             <select id="service" name="service" class="form-select" required>
-              <option value="" disabled selected>Select a growth system</option>
-              <option value="website-sprint">Conversion Website Sprint</option>
-              <option value="automation">AI Workflow Automation</option>
-              <option value="growth-stacks">Demand Generation Stack</option>
-              <option value="other">Full Systems Rebuild</option>
+              <option value="" disabled selected>Select a service</option>
+              <option value="website-funnel">AI Website & Funnel Build</option>
+              <option value="qualification">Lead Qualification Automation</option>
+              <option value="sales-ops">Sales & Handover Workflows</option>
+              <option value="dashboard">Decision Dashboards</option>
+              <option value="full-system">Full AI Growth System</option>
             </select>
             <span class="form-error-msg">Please select a service</span>
           </div>
@@ -332,14 +494,14 @@
           <div class="form-group form-group-spacing">
             <label class="form-label" for="message">Project Details</label>
             <textarea id="message" name="message" class="form-textarea"
-              placeholder="What outcome are you trying to improve over the next 90 days?"></textarea>
+              placeholder="What outcome are you trying to improve in the next 90 days?"></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary form-submit-btn">Send Project Brief</button>
 
-          <div id="formSuccess" class="form-success-overlay">
-            <h3 class="h-font form-success-title">Brief Received.</h3>
-            <p>Your email client should open now. If not, please reach out to
+          <div id="formSuccess" class="form-success-overlay" role="status" aria-live="polite">
+            <h3 class="h-font form-success-title">Brief received.</h3>
+            <p>Your email client should open now. If it does not, contact
               <a href="mailto:hello@vanguarddigital.com.au">hello@vanguarddigital.com.au</a>.
             </p>
           </div>
@@ -351,14 +513,15 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <span class="logo">VANGUARD DIGITAL SOLUTIONS</span>
+        <span class="logo">Vanguard Digital</span>
         <p class="footer-copy">&copy; 2026 Melbourne, Australia. Vanguard Digital Solutions Pty Ltd. ABN 41 695 249
           793.</p>
       </div>
       <div class="footer-links">
-        <a href="#work">Work</a>
+        <a href="#work">Outcomes</a>
         <a href="#services">Services</a>
-        <a href="#approach">Approach</a>
+        <a href="#approach">Process</a>
+        <a href="#faq">FAQ</a>
         <a href="mailto:hello@vanguarddigital.com.au">Email Us</a>
       </div>
     </div>

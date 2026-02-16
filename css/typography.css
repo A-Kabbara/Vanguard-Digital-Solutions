@@ -1,0 +1,80 @@
+/* Typography System - Vanguard Digital */
+
+/* Heading styles */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;   /* Instrument Serif only has Regular 400 */
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: var(--fs-hero);
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-size: var(--fs-2xl);
+}
+
+h3 {
+  font-size: var(--fs-xl);
+  letter-spacing: -0.02em;
+}
+
+h4 {
+  font-size: var(--fs-lg);
+  letter-spacing: -0.01em;
+}
+
+/* Body text */
+p {
+  font-size: var(--fs-base);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  text-wrap: pretty;
+}
+
+/* Lead/intro paragraph */
+.text-lead {
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+/* Small text */
+small, .text-sm {
+  font-size: var(--fs-sm);
+}
+
+/* Extra small text */
+.text-xs {
+  font-size: var(--fs-xs);
+}
+
+/* Mono utility class */
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+/* Strong/bold (Inter body text only) */
+strong, b {
+  font-weight: 600;
+}
+
+/* Italic handling for Instrument Serif */
+h1 em, h2 em, h3 em, h4 em {
+  font-style: italic;
+}
+
+/* Link text with accent color */
+.text-accent {
+  color: var(--color-accent-text);
+}

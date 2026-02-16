@@ -1,0 +1,80 @@
+/* ========================================
+   Layout System - Vanguard Digital
+
+   Breakpoints (desktop-first):
+   - Desktop: default (no media query)
+   - Tablet:  max-width: 1024px
+   - Mobile:  max-width: 640px
+
+   Container: 1120px max, centered, responsive padding
+   ======================================== */
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: var(--space-6);  /* 24px */
+}
+
+/* Section spacing */
+.section {
+  padding-block: var(--space-section);
+}
+
+.section-lg {
+  padding-block: var(--space-section-lg);
+}
+
+/* Stack utility (vertical rhythm) */
+.stack > * + * {
+  margin-top: var(--space-6);
+}
+
+.stack-sm > * + * {
+  margin-top: var(--space-4);
+}
+
+.stack-lg > * + * {
+  margin-top: var(--space-10);
+}
+
+/* Flow utility (horizontal spacing) */
+.flow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.flow-sm {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .container {
+    padding-inline: var(--space-6);  /* 24px -- same as desktop */
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 640px) {
+  .container {
+    padding-inline: var(--space-4);  /* 16px -- tighter on mobile */
+  }
+}
+
+/* Visually hidden utility (screen reader only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
