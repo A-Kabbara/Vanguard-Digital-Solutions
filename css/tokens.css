@@ -13,106 +13,123 @@
    TIER 1: PRIMITIVES (raw values, never used directly in components)
    ============================================ */
 :root {
-  /* Background palette */
-  --raw-bg-primary: #08090E;
-  --raw-bg-surface: #0F1117;
-  --raw-bg-subtle: #161820;
+   /* Background palette */
+   --raw-bg-primary: #08090E;
+   --raw-bg-surface: #0F1117;
+   --raw-bg-subtle: #161820;
 
-  /* Text palette */
-  --raw-text-primary: #F0F0F5;
-  --raw-text-secondary: #9B9BA8;
+   /* Text palette */
+   --raw-text-primary: #F0F0F5;
+   --raw-text-secondary: #9B9BA8;
 
-  /* Accent palette */
-  --raw-accent: #635BFF;
-  --raw-accent-text: #7B75FF; /* Lightened for WCAG AA 4.5:1 on body text */
+   /* Accent palette */
+   --raw-accent: #635BFF;
+   --raw-accent-text: #7B75FF;
+   /* Lightened for WCAG AA 4.5:1 on body text */
 
-  /* Success / positive */
-  --raw-success: #00D68F;
+   /* Success / positive */
+   --raw-success: #00D68F;
 
-  /* Radius base values */
-  --raw-radius-sm: 8px;
-  --raw-radius-md: 12px;
-  --raw-radius-lg: 16px;
-  --raw-radius-xl: 20px;
-  --raw-radius-pill: 999px;
+   /* Radius base values */
+   --raw-radius-sm: 8px;
+   --raw-radius-md: 12px;
+   --raw-radius-lg: 16px;
+   --raw-radius-xl: 20px;
+   --raw-radius-pill: 999px;
 }
 
 /* ============================================
    TIER 2: SEMANTIC (purpose-named, what components use)
    ============================================ */
 :root {
-  /* --- Backgrounds --- */
-  --color-page: var(--raw-bg-primary);
-  --color-surface: var(--raw-bg-surface);
-  --color-surface-raised: var(--raw-bg-subtle);
+   /* --- Backgrounds --- */
+   --color-page: var(--raw-bg-primary);
+   --color-surface: var(--raw-bg-surface);
+   --color-surface-raised: var(--raw-bg-subtle);
 
-  /* --- Text --- */
-  --color-text: var(--raw-text-primary);
-  --color-text-muted: var(--raw-text-secondary);
+   /* --- Text --- */
+   --color-text: var(--raw-text-primary);
+   --color-text-muted: var(--raw-text-secondary);
 
-  /* --- Accent + derived states --- */
-  --color-accent: var(--raw-accent);
-  --color-accent-text: var(--raw-accent-text);
-  --color-accent-hover: color-mix(in srgb, var(--raw-accent) 85%, #F0F0F5);
-  --color-accent-subtle: color-mix(in srgb, var(--raw-accent) 12%, transparent);
-  --color-accent-glow: color-mix(in srgb, var(--raw-accent) 20%, transparent);
+   /* --- Accent + derived states --- */
+   --color-accent: var(--raw-accent);
+   --color-accent-text: var(--raw-accent-text);
+   --color-accent-hover: color-mix(in srgb, var(--raw-accent) 85%, #F0F0F5);
+   --color-accent-subtle: color-mix(in srgb, var(--raw-accent) 12%, transparent);
+   --color-accent-glow: color-mix(in srgb, var(--raw-accent) 20%, transparent);
 
-  /* --- Success --- */
-  --color-success: var(--raw-success);
+   /* --- Success --- */
+   --color-success: var(--raw-success);
 
-  /* --- Borders --- */
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-hover: color-mix(in srgb, var(--raw-accent) 40%, transparent);
+   /* --- Borders --- */
+   --color-border: rgba(255, 255, 255, 0.08);
+   --color-border-hover: color-mix(in srgb, var(--raw-accent) 40%, transparent);
 
-  /* --- Interactive --- */
-  --color-focus-ring: var(--raw-accent);
+   /* --- Spotlight Glow --- */
+   --spotlight-color: color-mix(in srgb, var(--raw-accent) 12%, transparent);
+   --spotlight-size: 400px;
+   --spotlight-opacity: 0;
 
-  /* --- Selection --- */
-  --color-selection-bg: color-mix(in srgb, var(--raw-accent) 35%, transparent);
-  --color-selection-text: var(--raw-text-primary);
+   /* --- Interactive --- */
+   --color-focus-ring: var(--raw-accent);
 
-  /* --- Radius --- */
-  --radius-sm: var(--raw-radius-sm);
-  --radius-md: var(--raw-radius-md);
-  --radius-lg: var(--raw-radius-lg);
-  --radius-xl: var(--raw-radius-xl);
-  --radius-pill: var(--raw-radius-pill);
+   /* --- Selection --- */
+   --color-selection-bg: color-mix(in srgb, var(--raw-accent) 35%, transparent);
+   --color-selection-text: var(--raw-text-primary);
 
-  /* --- Transitions --- */
-  --transition-smooth: all 0.38s cubic-bezier(0.23, 1, 0.32, 1);
-  --transition-soft: all 0.28s ease;
+   /* --- Radius --- */
+   --radius-sm: var(--raw-radius-sm);
+   --radius-md: var(--raw-radius-md);
+   --radius-lg: var(--raw-radius-lg);
+   --radius-xl: var(--raw-radius-xl);
+   --radius-pill: var(--raw-radius-pill);
 
-  /* --- Font families --- */
-  --font-heading: 'Instrument Serif', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+   /* --- Transitions --- */
+   --transition-smooth: all 0.38s cubic-bezier(0.23, 1, 0.32, 1);
+   --transition-soft: all 0.28s ease;
 
-  /* --- Font size scale (fluid) --- */
-  --fs-xs:   clamp(0.75rem,  0.71rem + 0.19vw, 0.875rem);
-  --fs-sm:   clamp(0.875rem, 0.83rem + 0.19vw, 1rem);
-  --fs-base: clamp(1rem,     0.95rem + 0.24vw, 1.125rem);
-  --fs-md:   clamp(1.125rem, 1.05rem + 0.37vw, 1.25rem);
-  --fs-lg:   clamp(1.25rem,  1.10rem + 0.56vw, 1.5rem);
-  --fs-xl:   clamp(1.75rem,  1.40rem + 1.22vw, 2.75rem);
-  --fs-2xl:  clamp(2.25rem,  1.80rem + 1.69vw, 3.5rem);
-  --fs-hero: clamp(2.5rem,   1.95rem + 2.82vw, 5.5rem);
+   /* --- Font families --- */
+   --font-heading: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+   --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
-  /* --- Spacing scale --- */
-  --space-1:  0.25rem;   /* 4px */
-  --space-2:  0.5rem;    /* 8px */
-  --space-3:  0.75rem;   /* 12px */
-  --space-4:  1rem;      /* 16px */
-  --space-6:  1.5rem;    /* 24px */
-  --space-8:  2rem;      /* 32px */
-  --space-10: 2.5rem;    /* 40px */
-  --space-12: 3rem;      /* 48px */
-  --space-16: 4rem;      /* 64px */
-  --space-20: 5rem;      /* 80px */
-  --space-24: 6rem;      /* 96px */
+   /* --- Font size scale (fluid) --- */
+   --fs-xs: clamp(0.75rem, 0.71rem + 0.19vw, 0.875rem);
+   --fs-sm: clamp(0.875rem, 0.83rem + 0.19vw, 1rem);
+   --fs-base: clamp(1rem, 0.95rem + 0.24vw, 1.125rem);
+   --fs-md: clamp(1.125rem, 1.05rem + 0.37vw, 1.25rem);
+   --fs-lg: clamp(1.25rem, 1.10rem + 0.56vw, 1.5rem);
+   --fs-xl: clamp(1.75rem, 1.40rem + 1.22vw, 2.75rem);
+   --fs-2xl: clamp(2.25rem, 1.80rem + 1.69vw, 3.5rem);
+   --fs-hero: clamp(2.5rem, 1.95rem + 2.82vw, 5.5rem);
 
-  /* Fluid section spacing */
-  --space-section:    clamp(4rem, 3rem + 3.5vw, 6.5rem);
-  --space-section-lg: clamp(5rem, 3.5rem + 4.5vw, 8rem);
+   /* --- Spacing scale --- */
+   --space-1: 0.25rem;
+   /* 4px */
+   --space-2: 0.5rem;
+   /* 8px */
+   --space-3: 0.75rem;
+   /* 12px */
+   --space-4: 1rem;
+   /* 16px */
+   --space-6: 1.5rem;
+   /* 24px */
+   --space-8: 2rem;
+   /* 32px */
+   --space-10: 2.5rem;
+   /* 40px */
+   --space-12: 3rem;
+   /* 48px */
+   --space-16: 4rem;
+   /* 64px */
+   --space-20: 5rem;
+   /* 80px */
+   --space-24: 6rem;
+   /* 96px */
+
+   /* Fluid section spacing */
+   --space-section: clamp(4rem, 3rem + 3.5vw, 6.5rem);
+   --space-section-lg: clamp(5rem, 3.5rem + 4.5vw, 8rem);
 }
 
 /* ============================================

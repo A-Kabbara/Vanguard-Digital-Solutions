@@ -68,6 +68,30 @@
 .card:hover {
   border-color: var(--color-border-hover);
   transform: translateY(-2px);
+  --spotlight-opacity: 1;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(var(--spotlight-size) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      var(--spotlight-color),
+      transparent 80%);
+  opacity: var(--spotlight-opacity, 0);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.card>* {
+  position: relative;
+  z-index: 2;
 }
 
 .card-sm {
@@ -101,8 +125,15 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* ========================================
@@ -217,6 +248,30 @@
 
 .accordion-item:hover {
   border-color: var(--color-border-hover);
+  --spotlight-opacity: 1;
+}
+
+.accordion-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.accordion-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(var(--spotlight-size) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      var(--spotlight-color),
+      transparent 80%);
+  opacity: var(--spotlight-opacity, 0);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.accordion-item>* {
+  position: relative;
+  z-index: 2;
 }
 
 .accordion-item summary {

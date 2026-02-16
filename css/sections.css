@@ -303,9 +303,37 @@
   transition: var(--transition-soft);
 }
 
-.service-card:hover {
+.service-card:hover,
+.archetype-card:hover {
   border-color: var(--color-border-hover);
   transform: translateY(-2px);
+  --spotlight-opacity: 1;
+}
+
+.service-card,
+.archetype-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before,
+.archetype-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(var(--spotlight-size) circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      var(--spotlight-color),
+      transparent 80%);
+  opacity: var(--spotlight-opacity, 0);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.service-card>*,
+.archetype-card>* {
+  position: relative;
+  z-index: 2;
 }
 
 .service-icon {
@@ -758,10 +786,21 @@
   transform: translateY(0);
 }
 
-.reveal.d-100 { transition-delay: 100ms; }
-.reveal.d-200 { transition-delay: 200ms; }
-.reveal.d-300 { transition-delay: 300ms; }
-.reveal.d-400 { transition-delay: 400ms; }
+.reveal.d-100 {
+  transition-delay: 100ms;
+}
+
+.reveal.d-200 {
+  transition-delay: 200ms;
+}
+
+.reveal.d-300 {
+  transition-delay: 300ms;
+}
+
+.reveal.d-400 {
+  transition-delay: 400ms;
+}
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {

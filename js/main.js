@@ -75,19 +75,10 @@
     els.forEach(function (el) { observer.observe(el); });
   }
 
-  /* ── FAQ accordion (single open) ── */
+  /* ── FAQ accordion ── */
   function initFaq() {
-    var items = document.querySelectorAll('.accordion-item');
-    if (!items.length) return;
-
-    items.forEach(function (item) {
-      item.addEventListener('toggle', function () {
-        if (!item.open) return;
-        items.forEach(function (other) {
-          if (other !== item) other.open = false;
-        });
-      });
-    });
+    // browser default behavior allows multiple open items
+    // we keep this function as a placeholder or for future logic
   }
 
   /* ── Smooth scroll for anchor links ── */
@@ -125,7 +116,7 @@
     function isValidPhone(raw) {
       var cleaned = raw.replace(/[\s\-()+]/g, '');
       return /^(\+?61|0)[2-478]\d{8}$/.test(cleaned) ||
-             /^(\+?61|0)4\d{8}$/.test(cleaned);
+        /^(\+?61|0)4\d{8}$/.test(cleaned);
     }
 
     /* Clear field errors on input */
@@ -189,15 +180,15 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         })
-        .then(function (res) {
-          if (!res.ok) throw new Error('Submission failed');
-          showSuccess();
-        })
-        .catch(function () {
-          if (errorBanner) errorBanner.classList.add('show');
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Send Enquiry';
-        });
+          .then(function (res) {
+            if (!res.ok) throw new Error('Submission failed');
+            showSuccess();
+          })
+          .catch(function () {
+            if (errorBanner) errorBanner.classList.add('show');
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Enquiry';
+          });
       } else {
         /* Mailto fallback */
         var subject = encodeURIComponent('Website Enquiry - ' + data.full_name);
@@ -208,7 +199,7 @@
           '\nService: ' + data.service +
           '\n\nMessage:\n' + (data.message || 'Not provided')
         );
-        window.location.href = 'mailto:hello@vanguarddigital.com.au?subject=' + subject + '&body=' + body;
+        window.location.href = 'mailto:admin@vanguard-digital.com.au?subject=' + subject + '&body=' + body;
         showSuccess();
       }
 
@@ -223,6 +214,64 @@
     });
   }
 
+  /* ── Spotlight effect (mouse tracking) ── */
+  function initSpotlight() {
+    var cards = document.querySelectorAll('.service-card, .archetype-card, .accordion-item');
+    if (!cards.length) return;
+
+    cards.forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', x + 'px');
+        card.style.setProperty('--mouse-y', y + 'px');
+      });
+    });
+  }
+
+  /* ── Stat Counters ── */
+  function initCounters() {
+    var stats = document.querySelectorAll('.stat-value');
+    if (!stats.length) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    function animateCounter(el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var prefix = el.getAttribute('data-prefix') || '';
+      var suffix = el.getAttribute('data-suffix') || '';
+      var duration = 2000;
+      var startTimestamp = null;
+
+      function step(timestamp) {
+        if (!startTimestamp) startTimestamp = timestamp;
+        var progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        var current = Math.floor(progress * target);
+
+        el.textContent = prefix + current + suffix;
+
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        } else {
+          el.textContent = prefix + target + suffix;
+        }
+      }
+
+      window.requestAnimationFrame(step);
+    }
+
+    stats.forEach(function (stat) { observer.observe(stat); });
+  }
+
   /* ── Init ── */
   document.addEventListener('DOMContentLoaded', function () {
     initNavbar();
@@ -231,5 +280,7 @@
     initFaq();
     initSmoothScroll();
     initContactForm();
+    initSpotlight();
+    initCounters();
   });
 })();
