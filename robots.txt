@@ -1,0 +1,5 @@
+# robots.txt for vanguard-digital.com.au
+User-agent: *
+Allow: /
+
+Sitemap: https://vanguard-digital.com.au/sitemap.xml
