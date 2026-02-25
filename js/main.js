@@ -8,7 +8,7 @@
      Configure your n8n webhook URL here.
      Leave empty to fall back to mailto.
      ────────────────────────────────────────── */
-  var WEBHOOK_URL = '';
+  var WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/bTUN0Zc44fp0O9MCZFL6/webhook-trigger/004de7e7-9fea-4c8d-b79d-0c94cc7c38b0';
 
   /* ── Navbar scroll state ── */
   function initNavbar() {
