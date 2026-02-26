@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>Luxe Influence | Luxury Influencer Marketing</title>
+  <meta name="description"
+    content="Luxe Influence connects the world's most discerning brands with the voices that shape culture. Bespoke influencer partnerships, brand strategy, and campaign management.">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0A0A'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23C9A96E'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --color-dark-bg: #0A0A0A;
+      --color-dark-surface: #111111;
+      --color-dark-text: #F5F5F0;
+      --color-dark-text-muted: #999999;
+      --color-dark-border: rgba(255, 255, 255, 0.08);
+
+      --color-light-bg: #FAFAFA;
+      --color-light-text: #1A1A1A;
+      --color-light-text-muted: #666666;
+      --color-light-border: rgba(0, 0, 0, 0.08);
+
+      --color-accent: #C9A96E;
+      --color-accent-hover: #B8944F;
+
+      --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+      --fs-xs: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
+      --fs-sm: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+      --fs-base: clamp(1rem, 0.95rem + 0.2vw, 1.1rem);
+      --fs-lg: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --fs-xl: clamp(1.75rem, 1.4rem + 1.2vw, 2.75rem);
+      --fs-2xl: clamp(2.25rem, 1.8rem + 1.5vw, 3.25rem);
+      --fs-hero: clamp(2.75rem, 2rem + 3vw, 5.5rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --space-section: clamp(5rem, 4rem + 4vw, 8rem);
+
+      --radius-sm: 4px;
+      --radius-md: 8px;
+
+      --transition-slow: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      --transition-medium: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      --transition-fast: all 0.3s ease;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 100%; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body {
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      line-height: 1.65;
+      color: var(--color-dark-text);
+      background-color: var(--color-dark-bg);
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul, ol { list-style: none; }
+    button, input, textarea { font: inherit; border: none; outline: none; background: none; }
+
+    /* ===== SKIP LINK ===== */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-4);
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-accent);
+      color: var(--color-dark-bg);
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      z-index: 999;
+    }
+    .skip-link:focus { top: var(--space-4); }
+
+    /* ===== FOCUS STYLES ===== */
+    :focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin-inline: auto;
+      padding-inline: var(--space-6);
+    }
+
+    /* ===== BRAND BAR ===== */
+    .brand-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: var(--space-6) 0;
+      transition: var(--transition-medium);
+    }
+    .brand-bar.scrolled {
+      padding: var(--space-3) 0;
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .brand-name {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-dark-text);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background: radial-gradient(ellipse at 50% 0%, #1a1a1a 0%, var(--color-dark-bg) 70%);
+      padding: var(--space-24) var(--space-6);
+    }
+    .hero-content {
+      max-width: 800px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-8);
+    }
+    .hero-headline {
+      font-family: var(--font-heading);
+      font-size: var(--fs-hero);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--color-dark-text);
+      margin-bottom: var(--space-8);
+    }
+    .hero-subtitle {
+      font-size: var(--fs-lg);
+      font-weight: 300;
+      color: var(--color-dark-text-muted);
+      max-width: 600px;
+      margin-inline: auto;
+      margin-bottom: var(--space-12);
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: var(--space-4) var(--space-10);
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-dark-bg);
+      background: var(--color-accent);
+      border-radius: var(--radius-sm);
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+    .hero-cta:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: var(--space-10);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      transition: opacity 0.5s ease;
+    }
+    .scroll-indicator span {
+      font-size: var(--fs-xs);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-dark-text-muted);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: var(--color-dark-text-muted);
+      position: relative;
+      overflow: hidden;
+    }
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--color-accent);
+      animation: scrollPulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes scrollPulse {
+      0% { top: -100%; }
+      50% { top: 0; }
+      100% { top: 100%; }
+    }
+
+    /* ===== SERVICES ===== */
+    .services {
+      background: var(--color-light-bg);
+      color: var(--color-light-text);
+      padding-block: var(--space-section);
+    }
+    .services-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+    .section-eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--space-4);
+      display: block;
+    }
+    .services .section-heading {
+      font-family: var(--font-heading);
+      font-size: var(--fs-2xl);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--color-light-text);
+      margin-bottom: var(--space-6);
+    }
+    .services .section-subtitle {
+      font-size: var(--fs-base);
+      font-weight: 300;
+      color: var(--color-light-text-muted);
+      max-width: 550px;
+      margin-inline: auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-8);
+    }
+    .service-card {
+      transition: var(--transition-medium);
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+    .card-image {
+      aspect-ratio: 4 / 3;
+      background: #E5E5E5;
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .card-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--color-light-border);
+      border-radius: var(--radius-md);
+      pointer-events: none;
+    }
+    .card-image-text {
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #AAAAAA;
+    }
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--color-light-text);
+      margin-bottom: var(--space-4);
+    }
+    .card-description {
+      font-size: var(--fs-sm);
+      font-weight: 400;
+      color: var(--color-light-text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: var(--color-dark-bg);
+      padding-block: var(--space-section);
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: start;
+    }
+    .contact-info .section-heading {
+      font-family: var(--font-heading);
+      font-size: var(--fs-2xl);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--color-dark-text);
+      margin-bottom: var(--space-6);
+    }
+    .contact-info .section-body {
+      font-size: var(--fs-base);
+      font-weight: 300;
+      color: var(--color-dark-text-muted);
+      line-height: 1.7;
+    }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: var(--space-6); }
+    .form-group { display: flex; flex-direction: column; gap: var(--space-2); }
+    .form-label {
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-dark-text-muted);
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: var(--space-4);
+      background: var(--color-dark-surface);
+      border: 1px solid var(--color-dark-border);
+      border-radius: var(--radius-sm);
+      color: var(--color-dark-text);
+      font-size: var(--fs-base);
+      font-weight: 400;
+      transition: var(--transition-fast);
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: #555555;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--color-accent);
+      outline: none;
+    }
+    .form-textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .form-error-msg {
+      font-size: var(--fs-xs);
+      color: #E54D4D;
+      display: none;
+    }
+    .form-group.error .form-input,
+    .form-group.error .form-textarea {
+      border-color: #E54D4D;
+    }
+    .form-group.error .form-error-msg {
+      display: block;
+    }
+    .form-error-banner {
+      background: rgba(229, 77, 77, 0.1);
+      border: 1px solid rgba(229, 77, 77, 0.3);
+      color: #E54D4D;
+      padding: var(--space-4);
+      border-radius: var(--radius-sm);
+      font-size: var(--fs-sm);
+      display: none;
+    }
+    .form-error-banner.show { display: block; }
+
+    .form-honey {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .btn-submit {
+      display: inline-block;
+      padding: var(--space-4) var(--space-10);
+      font-family: var(--font-body);
+      font-size: var(--fs-sm);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-dark-bg);
+      background: var(--color-accent);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition-fast);
+      align-self: flex-start;
+    }
+    .btn-submit:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-2px);
+    }
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--space-12) 0;
+    }
+    .form-success.show { display: block; }
+    .form-success h3 {
+      font-family: var(--font-heading);
+      font-size: var(--fs-xl);
+      font-weight: 400;
+      color: var(--color-dark-text);
+      margin-bottom: var(--space-4);
+    }
+    .form-success p {
+      font-size: var(--fs-base);
+      font-weight: 300;
+      color: var(--color-dark-text-muted);
+    }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--color-dark-bg);
+      border-top: 1px solid var(--color-dark-border);
+      padding: var(--space-12) 0;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-dark-text);
+      margin-bottom: var(--space-4);
+    }
+    .footer-copy {
+      font-size: var(--fs-xs);
+      color: var(--color-dark-text-muted);
+    }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1),
+                  transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal.d-200 { transition-delay: 200ms; }
+    .reveal.d-400 { transition-delay: 400ms; }
+    .reveal.d-600 { transition-delay: 600ms; }
+    .reveal.d-800 { transition-delay: 800ms; }
+
+    /* ===== RESPONSIVE: TABLET ===== */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin-inline: auto;
+      }
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+      }
+    }
+
+    /* ===== RESPONSIVE: MOBILE ===== */
+    @media (max-width: 640px) {
+      .container { padding-inline: var(--space-4); }
+      .hero { padding: var(--space-20) var(--space-4) var(--space-16); }
+      .hero-headline { letter-spacing: -0.01em; }
+      .hero-cta { width: 100%; text-align: center; }
+      .scroll-indicator { display: none; }
+      .btn-submit { width: 100%; text-align: center; }
+    }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===== BRAND BAR ===== -->
+  <header class="brand-bar" id="brandBar">
+    <div class="container">
+      <span class="brand-name">Luxe Influence</span>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow reveal">Luxury Influencer Marketing</p>
+        <h1 class="hero-headline reveal d-200">Where Influence<br>Meets Luxury</h1>
+        <p class="hero-subtitle reveal d-400">We connect the world's most discerning brands with the voices that shape culture.</p>
+        <a href="#contact" class="hero-cta reveal d-600">Start a Conversation</a>
+      </div>
+      <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services-header">
+          <span class="section-eyebrow reveal">Our Services</span>
+          <h2 class="section-heading reveal d-200">Crafted for Distinction</h2>
+          <p class="section-subtitle reveal d-400">Every partnership is bespoke. Every campaign, intentional.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="card-image">
+              <span class="card-image-text">Image</span>
+            </div>
+            <h3 class="card-title">Influencer Partnerships</h3>
+            <p class="card-description">We identify and cultivate relationships with influencers whose personal brand aligns authentically with your luxury positioning. Every partnership is vetted, every collaboration intentional.</p>
+          </article>
+
+          <article class="service-card reveal d-200">
+            <div class="card-image">
+              <span class="card-image-text">Image</span>
+            </div>
+            <h3 class="card-title">Brand Strategy</h3>
+            <p class="card-description">From market positioning to narrative development, we craft strategies that ensure your brand's story resonates with high-value audiences through the right voices.</p>
+          </article>
+
+          <article class="service-card reveal d-400">
+            <div class="card-image">
+              <span class="card-image-text">Image</span>
+            </div>
+            <h3 class="card-title">Campaign Management</h3>
+            <p class="card-description">End-to-end campaign execution with meticulous attention to detail. From creative direction to performance analytics, we manage every element so you can focus on your brand.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+      <div class="container contact-layout">
+        <div class="contact-info">
+          <span class="section-eyebrow reveal">Get in Touch</span>
+          <h2 class="section-heading reveal d-200">Let's Create Something Extraordinary</h2>
+          <p class="section-body reveal d-400">Whether you're launching a new collection or looking to redefine your brand's digital presence, we'd love to hear from you.</p>
+        </div>
+
+        <form class="contact-form reveal d-200" id="contactForm" novalidate>
+          <div class="form-error-banner" id="formError" role="alert">
+            Something went wrong. Please try again.
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="full_name" class="form-input" placeholder="Your name" required autocomplete="name">
+            <span class="form-error-msg">Please enter your name</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email *</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email">
+            <span class="form-error-msg">Please enter a valid email</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="company">Company / Brand</label>
+            <input type="text" id="company" name="company" class="form-input" placeholder="Your brand name" autocomplete="organization">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Tell Us About Your Vision</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="What are you looking to achieve?"></textarea>
+          </div>
+
+          <div class="form-honey" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">Send Enquiry</button>
+
+          <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+            <h3>Thank you for reaching out.</h3>
+            <p>We'll be in touch within 24 hours.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-brand">Luxe Influence</p>
+      <p class="footer-copy">&copy; 2026 All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ──────────────────────────────────────────
+         Configure your webhook URL here.
+         Leave empty to fall back to mailto.
+         ────────────────────────────────────────── */
+      var WEBHOOK_URL = '';
+
+      /* ── Brand bar scroll state ── */
+      function initBrandBar() {
+        var bar = document.getElementById('brandBar');
+        if (!bar) return;
+
+        function update() {
+          bar.classList.toggle('scrolled', window.scrollY > 60);
+        }
+
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+      }
+
+      /* ── Scroll reveal (IntersectionObserver) ── */
+      function initReveals() {
+        var els = document.querySelectorAll('.reveal');
+        if (!els.length) return;
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          els.forEach(function (el) { el.classList.add('active'); });
+          return;
+        }
+
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -80px 0px' });
+
+        els.forEach(function (el) { observer.observe(el); });
+      }
+
+      /* ── Smooth scroll for anchor links ── */
+      function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+          link.addEventListener('click', function (e) {
+            var id = link.getAttribute('href');
+            if (id === '#') return;
+            var target = document.querySelector(id);
+            if (!target) return;
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+        });
+      }
+
+      /* ── Scroll indicator fade-out ── */
+      function initScrollIndicator() {
+        var indicator = document.getElementById('scrollIndicator');
+        if (!indicator) return;
+
+        window.addEventListener('scroll', function () {
+          indicator.style.opacity = window.scrollY > 100 ? '0' : '1';
+        }, { passive: true });
+      }
+
+      /* ── Contact form validation + submission ── */
+      function initContactForm() {
+        var form = document.getElementById('contactForm');
+        if (!form) return;
+
+        var submitBtn = document.getElementById('submitBtn');
+        var successEl = document.getElementById('formSuccess');
+        var errorBanner = document.getElementById('formError');
+
+        /* Clear field errors on input */
+        form.querySelectorAll('.form-input, .form-textarea').forEach(function (field) {
+          field.addEventListener('input', function () {
+            var group = field.closest('.form-group');
+            if (group) group.classList.remove('error');
+          });
+        });
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          /* Honeypot check */
+          var honey = form.querySelector('input[name="website"]');
+          if (honey && honey.value) return;
+
+          /* Validate required fields */
+          var valid = true;
+          form.querySelectorAll('[required]').forEach(function (field) {
+            var group = field.closest('.form-group');
+            if (!group) return;
+            var value = field.value.trim();
+
+            if (!value) {
+              group.classList.add('error');
+              valid = false;
+              return;
+            }
+
+            if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+              group.classList.add('error');
+              valid = false;
+              return;
+            }
+
+            group.classList.remove('error');
+          });
+
+          if (!valid) return;
+
+          /* Gather form data */
+          var data = {};
+          new FormData(form).forEach(function (val, key) { data[key] = val; });
+          delete data.website;
+
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending\u2026';
+          if (errorBanner) errorBanner.classList.remove('show');
+
+          /* Submit via webhook or mailto fallback */
+          if (WEBHOOK_URL) {
+            fetch(WEBHOOK_URL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            })
+              .then(function (res) {
+                if (!res.ok) throw new Error('Submission failed');
+                showSuccess();
+              })
+              .catch(function () {
+                if (errorBanner) errorBanner.classList.add('show');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Enquiry';
+              });
+          } else {
+            /* Mailto fallback */
+            var subject = encodeURIComponent('Enquiry from ' + data.full_name);
+            var body = encodeURIComponent(
+              'Name: ' + data.full_name +
+              '\nEmail: ' + data.email +
+              '\nCompany: ' + (data.company || 'Not provided') +
+              '\n\nMessage:\n' + (data.message || 'Not provided')
+            );
+            window.location.href = 'mailto:hello@luxeinfluence.com?subject=' + subject + '&body=' + body;
+            showSuccess();
+          }
+
+          function showSuccess() {
+            form.reset();
+            Array.from(form.children).forEach(function (child) {
+              if (child.id !== 'formSuccess') child.style.display = 'none';
+            });
+            if (successEl) successEl.classList.add('show');
+          }
+        });
+      }
+
+      /* ── Init ── */
+      document.addEventListener('DOMContentLoaded', function () {
+        initBrandBar();
+        initReveals();
+        initSmoothScroll();
+        initScrollIndicator();
+        initContactForm();
+      });
+    })();
+  </script>
+</body>
+
+</html>
