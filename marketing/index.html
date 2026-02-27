@@ -821,7 +821,7 @@
   <footer class="site-footer">
     <div class="container">
       <p class="footer-brand">Vanguard Digital</p>
-      <p class="footer-copy">&copy; 2026 All rights reserved.</p>
+      <p class="footer-copy">&copy; <span id="currentYear"></span> All rights reserved.</p>
     </div>
   </footer>
 
@@ -846,6 +846,14 @@
 
         update();
         window.addEventListener('scroll', update, { passive: true });
+      }
+
+      /* ── Set Current Year ── */
+      function initCurrentYear() {
+        var yearEl = document.getElementById('currentYear');
+        if (yearEl) {
+          yearEl.textContent = new Date().getFullYear();
+        }
       }
 
       /* ── Scroll reveal (IntersectionObserver) ── */
@@ -992,6 +1000,7 @@
 
       /* ── Init ── */
       document.addEventListener('DOMContentLoaded', function () {
+        initCurrentYear();
         initBrandBar();
         initReveals();
         initSmoothScroll();
